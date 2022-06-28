@@ -1,9 +1,11 @@
 export enum MasterDataLookUpTypes {
   nationmaster = '1',
+  licenselist = '2',
   doctypes = '3',
   departmentmaster = '4',
   professionmaster = '5',
   gendermaster = '6',
+  companylist = '8',
   vpmaster = '10',
   cmpmaster = '11',
   browsedata = '12',

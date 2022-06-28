@@ -10,7 +10,16 @@ html {
   height:100%;
   overflow: hidden;
   font-family:$font-family-normal;
-  font-size: 1rem !important;
+  font-size: 0.9rem !important;
+}
+
+
+@media(max-width: 1400px) //if more than 400 px
+{
+  body,
+html{
+    font-size:0.75rem !important;
+  }
 }
 
 

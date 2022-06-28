@@ -26,9 +26,6 @@
         </div>
       </div>
 
-      <div class="row align-items-center my-2" *ngIf="docType == 'certificate'">
-        <ng-container *ngTemplateOutlet="certificateTemplate"> </ng-container>
-      </div>
 
       <div class="row align-items-center my-2" *ngIf="docType == 'document'">
         <ng-container *ngTemplateOutlet="docTemplate"> </ng-container>
@@ -39,45 +36,7 @@
 
 <!-- _________________________ TEMPLATES _____________________________________-->
 
-<!-- ########### Certificate ############-->
-<ng-template #certificateTemplate>
-  <div class="row align-items-center m-0" *ngIf="documentList?.length == 0">
-    <div class="col-md-12  p-0">
-      <div class="empty-content">
-        <p>
-          <a (click)="openModal(addDocument);"> No Certificates Has Been Added, Please Click To Add </a>
-        </p>
-      </div>
-    </div>
-  </div>
-  <ng-container *ngFor="let certificate of documentList">
-    <div class="col-md-3 mb-3" *ngIf="documentList?.length > 0">
-      <div class="document">
-        <div class="document-details">
-          <div class="document-icon" *ngIf="docType == 'document'">
-            <img src="assets/img/icon-pdf.svg" alt="" />
-          </div>
-          <div class="document-info">
-            <h6 class="text-primary">{{ certificate?.UserDocumentName }}</h6>
-            <p class="sub-text">{{getdoxTypeName(certificate?.doctype)}}</p>
-            <p class="sub-text" *ngIf="certificate?.IssueAuthority">{{ certificate?.IssueAuthority }}</p>
-            <p class="sub-text" *ngIf="!certificate?.IssueAuthority">N/A</p>
-            <p>{{ certificate?.IssueDate | CustomDate }}</p>
-          </div>
-        </div>
-        <div class="document-action">
-          <a (click)="confirmDelete(certificate)" class="btn-delete">
-            <!-- <img
-                    src="assets/img/icon-download.svg"
-                  /> -->
-            <!-- <i class="fa fa-trash"> </i> -->
-            <img src="assets/img/icon-delete.svg">
-          </a>
-        </div>
-      </div>
-    </div>
-  </ng-container>
-</ng-template>
+
 
 <!-- ########### Documents ############-->
 <ng-template #docTemplate>
@@ -122,12 +81,6 @@
 <!-- ########### Add File Popup ############-->
 <ng-template #addDocument>
   <div class="modal-header widgets widget-tag modal-tag secondary-tag tagLeft py-3" data-tag="Add Documents">
-    <!-- <h4 class="modal-title pull-left" *ngIf="docType == 'document'">
-      ADD DOCUMENTS
-    </h4>
-    <h4 class="modal-title pull-left" *ngIf="docType == 'certificate'">
-      ADD CERTIFCTE
-    </h4> -->
 
     <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="addDocmodalRef?.hide()">
       <span aria-hidden="true" class="visually-hidden"><img src="../../../../../shared-assets/images/icon-close.svg"
@@ -223,7 +176,7 @@
                 </mat-error>
               </mat-form-field>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6"  *ngIf="attachmentType == 'EMPLOYEE'">
               <mat-form-field appearance="outline">
                 <mat-label>Collection Status</mat-label>
                 <mat-select disableOptionCentering panelClass="mt-6" #onhandGrpSelect formControlName="dochand"

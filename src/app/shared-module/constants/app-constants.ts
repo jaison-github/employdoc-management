@@ -19,6 +19,11 @@ export const APIURL={
     alertUrl: baseUrl + 'getalerts',
 
 
+    saveForm:baseUrl + 'saveform',
+    getList: baseUrl + 'browsedata',
+    loadData: baseUrl + 'loaddata',
+    validateForm: baseUrl + 'validateform',
+
     
 
     

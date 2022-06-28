@@ -128,7 +128,7 @@ export class EmpFormComponent implements OnInit, OnDestroy {
       hra: new FormControl('', { updateOn: 'blur' }),
       others: new FormControl('', { updateOn: 'blur' }),
       netsalary: new FormControl('', { updateOn: 'blur' }),
-      imageid: new FormControl('', [Validators.required]),
+      imageid: new FormControl(''),
     });
   }
 
@@ -163,12 +163,9 @@ export class EmpFormComponent implements OnInit, OnDestroy {
         next: (res) => {
           this.empService.saveEmpForm(payload).subscribe({
             next: (res) => {
-              if(this.editMode){
               this.notify.showSuccess("Profile Updated Successfully", 'Employee Profile')
-              }
-              else{
-                this.notify.showSuccess("Profile Saved Successfully", 'Employee Profile')
-              }
+              
+              
               this.route.navigateByUrl('/employeemanagement/employeelist');
             },
             error: (err) => {},
@@ -181,6 +178,8 @@ export class EmpFormComponent implements OnInit, OnDestroy {
     } else {
       this.empService.saveEmpForm(payload).subscribe({
         next: (res) => {
+          this.notify.showSuccess("Profile Saved Successfully", 'Employee Profile')
+
           this.route.navigateByUrl('/employeemanagement/employeelist');
         },
         error: (err) => {},

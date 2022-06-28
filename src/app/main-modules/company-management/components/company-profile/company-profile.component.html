@@ -1,1 +1,109 @@
-<p>company-profile works!</p>
+<div class="container-fluid container--xl container--xxl main-page-wrap bg-trans-white  my-3 mx-3  relative">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+        <div class="row bg-theme-gradient page-highlight-header">
+            <div class="col-6">
+                <h3>Company Profile</h3>
+            </div>
+            <div class="col-6 row justify-content-end p-0">
+                <div class="col-md-2 d-flex justify-content-end p-0">
+
+                    <button class="text-white" mat-raised-button color="accent">Save</button>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="card bg-none">
+                <div class="card-body p-4 bg-none  ">
+                    <div class="row">
+                        <div>
+                            <h3 class="half-underline">Company Information</h3>
+                          </div>
+        
+                        <div class="col-md-6">
+                            <div class="col-md-12">
+                                <mat-form-field    class="cardtype" appearance="outline">
+                                  <mat-label>Company Name</mat-label>
+                                  <input formControlName="cmpnyname" matInput placeholder="Placeholder">
+                                </mat-form-field>
+            
+                                <mat-error *ngIf="errorHandling('cmpnyname', 'required')">
+                                  You must provide a<strong> Company Name </strong>
+                                </mat-error>
+                              </div>
+
+                              <div class="col-md-12">
+                                <mat-form-field    class="cardtype" appearance="outline">
+                                  <mat-label>Company Code</mat-label>
+                                  <input formControlName="cmpnycode" matInput placeholder="Placeholder">
+                                </mat-form-field>
+            
+                                <mat-error *ngIf="errorHandling('cmpnycode', 'required')">
+                                  You must provide a<strong> Company Code </strong>
+                                </mat-error>
+                              </div>
+
+                              <div class="col-md-12">
+                                <mat-form-field    class="cardtype" appearance="outline">
+                                  <mat-label>Company Address</mat-label>
+                                  <input formControlName="cmpnyaddress" matInput placeholder="Placeholder">
+                                </mat-form-field>
+            
+                                <mat-error *ngIf="errorHandling('cmpnyaddress', 'required')">
+                                  You must provide a<strong> Company Address </strong>
+                                </mat-error>
+                              </div>
+
+                        </div>
+
+                        <div class="col-md-6">
+
+                            
+                            <div class="col-md-12">
+                                <mat-form-field    class="cardtype" appearance="outline">
+                                  <mat-label>License Number</mat-label>
+                                  <input formControlName="licencenumber" matInput placeholder="Placeholder">
+                                </mat-form-field>
+            
+                                <mat-error *ngIf="errorHandling('licencenumber', 'required')">
+                                  You must provide a<strong> License Number </strong>
+                                </mat-error>
+                              </div>
+
+
+                              
+                              <div class="col-md-12">
+                                <mat-form-field    class="cardtype" appearance="outline">
+                                  <mat-label>Number Of Staff</mat-label>
+                                  <input formControlName="noofstaff" matInput placeholder="Placeholder">
+                                </mat-form-field>
+            
+                                <mat-error *ngIf="errorHandling('noofstaff', 'required')">
+                                  You must provide <strong>Number of staff </strong>
+                                </mat-error>
+                              </div>
+                            
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="row m-0">
+            <app-add-documents #certificateAdd [userId]="'Id'" [groupId]="activeGroupId" [attachmentType]="'NORMAL'"
+                [documentList]='uploadedDocumentList' [docTypeList]="docList" [docType]="'document'"
+                (docUploadSuccess)="afterDocUploadSuccess($event);" (onDocUpload)="getGroupidOnDocUpload($event);"
+                (onDocDelete)="deleteFile($event);" (docDeleteSuccess)="afterDocDelete($event);"></app-add-documents>
+        </div>
+
+
+
+
+    </form>
+</div>

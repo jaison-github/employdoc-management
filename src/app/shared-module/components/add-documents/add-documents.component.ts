@@ -30,6 +30,7 @@ export class AddDocumentsComponent implements OnInit {
   @Input() userId: any;
   @Input() groupId: any;
   @Input() editMode = false;
+  @Input() attachmentType = 'EMPLOYEE';
 
   @Output() docUploadSuccess = new EventEmitter<any>();
   @Output() docDeleteSuccess = new EventEmitter<any>();
@@ -83,7 +84,7 @@ export class AddDocumentsComponent implements OnInit {
       expirydate: new FormControl(null, [Validators.required]),
       docnumber: new FormControl(null, [Validators.required]),
       attachrefno: new FormControl(null),
-      dochand: new FormControl(null, [Validators.required]),
+      dochand: new FormControl(null),
       rowstate: new FormControl(null),
       sno: new FormControl(null),
       data:new FormControl(null),
@@ -94,6 +95,14 @@ export class AddDocumentsComponent implements OnInit {
       ]
     }
     );
+
+    this.attachmentType == 'EMPLOYEE' ?
+     this.f.dochand.setValidators(Validators.required) : null;
+
+
+
+
+
     this.subscription.push(
       this.vmFile$.subscribe((it) => {
         this.groupId = it.groupId;

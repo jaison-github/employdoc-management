@@ -27,7 +27,7 @@ interface MasterDataState {
     nationList: any[];
     vpmasterList: any[];
     professionList: any[];   
-    misc: [],           
+    misc: any[];           
     callState: CallState;
     executed: false;
 }
@@ -86,10 +86,11 @@ export class MasterDataStoreService extends ComponentStore<MasterDataState> {
         this.nationList$,
         this.vpmasterList$,
         this.professionList$,
+        this.misc$,
         this.loading$,
         this.error$,
         this.callState$,        
-        (genderList, departmentList,docList, companyList, nationList,vpmasterList, professionList, loading, error, callState) => ({
+        (genderList, departmentList,docList, companyList, nationList,vpmasterList, professionList, misc, loading, error, callState) => ({
             genderList,
             departmentList,
             docList,
@@ -97,6 +98,7 @@ export class MasterDataStoreService extends ComponentStore<MasterDataState> {
             nationList,
             vpmasterList,
             professionList,
+            misc,
             loading,           
             error,  
             callState,                    
@@ -247,7 +249,7 @@ readonly getMasterDatalist = this.effect((KEY$: Observable<string>) =>
               this.updateProfessionList(data);
              }
 
-             if(MasterDataLookUpTypes.empdropdownlist == KEY){
+             if(MasterDataLookUpTypes.empdropdownlist == KEY || MasterDataLookUpTypes.licenselist == KEY){
               this.updateMisc(data);
              }
 
