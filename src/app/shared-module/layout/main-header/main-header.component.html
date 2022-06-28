@@ -1,10 +1,10 @@
 <header class="header bg-white inheritSize ">
     <div class="header__main inheritSize ">
-        <div class="container-fluid container--xl mx-1 inheritSize ">
+        <div class="c inheritSize " style="max-width:100%; width:100%;">
           <div
-            class="row align-items-center justify-content-lg-end inheritSize  navbar navbar-expand-xl"
+            class="row align-items-center justify-content-between inheritSize  "
           >
-            <div class="col-6 col-lg-3 col-xl-3 d-flex align-items-center">
+            <div class="col-6  d-flex align-items-center">
               <a href=""
                 ><img
                   class="logo"
@@ -12,87 +12,11 @@
               /></a>
             </div>
             <div
-              class="col-12 col-md-8 col-xl-auto d-flex align-items-center ms-xl-auto order-3 order-lg-2"
+              class="col-auto d-flex align-items-center "
             >
-              <!-- <nav
-                class="header__nav mobile-nav collapse navbar-collapse"
-                [collapse]="isCollapsed"
-                [isAnimated]="true"
-              >
-                <ul class="header__nav-ul">
-                  <li class="header__nav-list-item">
-                    <a
-                      href="#"
-                      class="header__nav-link"
-                      routerLinkActive="router-link-active active"
-                      routerLink="admin/dashboard"
-                      >Company Profile</a
-                    >
-                  </li>
-                  <li class="header__nav-list-item">
-                    <a
-                      href="#"
-                      class="header__nav-link"
-                      routerLinkActive="router-link-active active"
-                      routerLink="admin/bookinglisting"
-                      >Employee Profile</a
-                    >
-                  </li>
-             
-                  <li class="header__nav-list-item">
-                    <a
-                      href="#"
-                      class="header__nav-link"
-                      routerLinkActive="router-link-active active"
-                      routerLink="admin/candidatelisting"
-                      >Document Management</a
-                    >
-                  </li>
-                  <li class="header__nav-list-item">
-                    <a
-                      href="#"
-                      class="header__nav-link"
-                      routerLinkActive="router-link-active active"
-                      routerLink="admin/companylisting"
-                      >Common Masters</a
-                    >
-                  </li>
-                  <li class="header__nav-list-item userAccountInfo">
-                    
-                 </li>
-                  <li class="header__nav-list-item mobile-menu-item-extra">
-                    <a href="#" class="header__nav-link">FAQ</a>
-                  </li>
-                  <li class="header__nav-list-item mobile-menu-item-extra">
-                    <a href="#" class="header__nav-link">Careers</a>
-                  </li>
-                  <li class="header__nav-list-item mobile-menu-item-extra">
-                    <a href="#" class="header__nav-link">News &amp; Media</a>
-                  </li>
-                  <li class="header__nav-list-item mobile-menu-item-extra">
-                    <a href="#" class="header__nav-link">Contact us</a>
-                  </li>
-                </ul>
-              </nav> -->
+            <app-header-account-info></app-header-account-info>              
             </div>
-            <div
-              class="col-6 col-lg-1 col-xl-auto d-flex align-items-center justify-content-end order-lg-2"
-            >
-              <div class="menu-button__wrapper">
-               
-                <button
-                  class="menu-button"
-                  [ngClass]="{ active: !isCollapsed }"
-                  type="button"
-                  (click)="isCollapsed = !isCollapsed"
-                >
-                  <span class="menu-button__bar"></span
-                  ><span class="menu-button__bar"></span
-                  ><span class="menu-button__bar"></span>
-                </button>
-             
-              </div>
-            </div>
+            
           </div>
         </div>
       </div>

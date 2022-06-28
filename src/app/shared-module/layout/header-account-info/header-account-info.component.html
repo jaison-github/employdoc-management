@@ -1,0 +1,47 @@
+<div class="acInofWrap" [matMenuTriggerFor]="acinfomenu">
+    <div class="acInofWrap_info" >
+        <p class="m-0">Hello</p>
+        <h6 class="text-primary"  title="{{activeUser?.fullName}}"  > <strong> {{activeUser?.fullName}} </strong> <i class="fa fa-angle-down"></i> </h6>
+    </div>
+    <div class="acInofWrap_img">
+        <div class="acInofWrap_img_holder">
+            <img  [attr.src]="profilePicUrl" />
+        </div>
+    </div>
+
+    <mat-menu #acinfomenu="matMenu" class="p-4 pb-3" yPosition="below"  xPosition="before">
+        <div class="acmenuWrap">
+            <fieldset>
+                <legend><small>Account Information</small></legend>
+                <ul>
+                  <li>
+                    <small>User Name: &nbsp; </small>
+                    <span>{{activeUser?.username}}</span>
+                  </li>                 
+                </ul>
+            </fieldset>
+            <fieldset >
+              <legend><small>Account Settings</small></legend>
+              <ul>
+                <li >
+                  <a class="text-primary"  >
+                   <u>Edit Profile</u> 
+                  </a>
+                </li>               
+              </ul>
+          </fieldset>
+      
+        </div>
+
+
+
+
+      
+
+          <hr>
+
+        <div class="px-2 py-2 text-right">
+            <button (click)="logOut();" class="btn btn-primary"><span>Log out</span><i class="fa fa-exit"></i></button>
+        </div>
+      </mat-menu>
+</div>

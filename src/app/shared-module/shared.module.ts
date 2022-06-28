@@ -23,6 +23,7 @@ import { CustomDate, CustomDateTime } from './pipes/custome-date-pipe';
 import { BsModalService, ModalModule } from 'ngx-bootstrap/modal';
 import { FileuploadService } from './services/fileupload.service';
 import { FilePreviewComponent } from './components/file-uploader/file-preview/file-preview.component';
+import { HeaderAccountInfoComponent } from './layout/header-account-info/header-account-info.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { FilePreviewComponent } from './components/file-uploader/file-preview/fi
     getFileTypeIcon,
     CustomDate,
     CustomDateTime,
-    FilePreviewComponent,    
+    FilePreviewComponent,
+    HeaderAccountInfoComponent
   ],
   imports: [
     CommonModule,

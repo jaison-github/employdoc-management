@@ -1,0 +1,91 @@
+@import "../../../../assets/scss/variables";
+.acInofWrap {
+  display: flex;
+  column-gap: 10px;
+  align-items: center;
+  justify-content: center;
+  background: #e0f2fd;
+  border-radius: 10px;
+  padding: 0.5rem 1.3rem;
+  flex-direction: row-reverse;
+  cursor: pointer;
+  
+  .acInofWrap_info {
+    font-size: small;
+    position: relative;
+    padding-right: 0px;    max-width: 220px;
+    // &::after {
+    //   content: "V";
+    //   position: absolute;
+    //   right: 0;
+    //   top: 0;
+    //   width: 20px;
+    //   height: 100%;
+    // }
+    p {
+      font-size: 10px;
+    }
+    h6 {
+      font-family: $font-family-bold;
+      font-size: 10px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+  }
+  .acInofWrap_img {
+    .acInofWrap_img_holder {
+      background: #fff;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+
+      img {
+        width: 100%;
+        height: auto;
+
+      }
+    }
+  }
+
+
+  
+}
+
+::ng-deep
+
+::ng-deep{
+  .mat-menu-panel{
+    max-width: 100% !important;
+  }
+  .acmenuWrap{
+    display: flex;
+
+    ul{
+      list-style: none;
+      padding: 0;
+      li{
+        margin-bottom: 1rem;
+        small {
+          font-size: 0.675em;
+          display: block;
+      }
+      }
+    }
+    
+    legend{
+      float: none !important;
+    }
+
+    fieldset{
+      display: block;
+    min-width: 200px;
+    padding: 1rem 2rem;
+    border:1px solid #eee;
+    margin-right: 1rem;
+}
+    }
+}

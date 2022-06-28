@@ -132,7 +132,7 @@ $myApp-theme: mat.define-light-theme((
  typography: mat.define-typography-config(
   $font-family: $font-family-normal,
   $headline:  mat.define-typography-level(24px, 32px, 400),
-  $input: mat.define-typography-level(inherit, 1.2, 400, 'ADPortsGroup-Regular',0.0333em),
+  $input: mat.define-typography-level(inherit, 1, 400, 'ADPortsGroup-Regular',0.0333em),
 )
 ));
 
