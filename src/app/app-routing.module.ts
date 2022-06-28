@@ -32,6 +32,14 @@ const routes: Routes = [
             (m) => m.DocumentManagementModule
           ),
       },
+
+      {
+        path: 'companyprofile',
+        loadChildren: () =>
+          import('./main-modules/company-management/company-management.module').then(
+            (m) => m.CompanyManagementModule
+          ),
+      },
      ],
   },
   {
