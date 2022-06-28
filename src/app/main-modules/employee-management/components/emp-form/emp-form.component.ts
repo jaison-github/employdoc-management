@@ -23,6 +23,7 @@ import { ComponentStore, tapResponse } from '@ngrx/component-store';
 import { FileUploadStoreService } from '@shared/stores/master-data/file-upload.state';
 import { ActivatedRoute, Router } from '@angular/router';
 import { APIURL } from '@shared/constants/app-constants';
+import { NotificationService } from '@shared/services/notification.service';
 
 @Component({
   selector: 'app-emp-form',
@@ -59,7 +60,8 @@ export class EmpFormComponent implements OnInit, OnDestroy {
     private fb: FormBuilder,
     private uploadService: FileuploadService,
     private route: Router,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private notify: NotificationService,
   ) {
     this.empService.getEmpModuleMasterData();
 
@@ -143,12 +145,11 @@ export class EmpFormComponent implements OnInit, OnDestroy {
   }
 
   onSubmit(): any {
-    this.saveForm();
     this.isSubmitted = true;
     if (!this.form.valid) {
       return true;
     }
-    let payload = this.form.getRawValue();
+    this.saveForm();
   }
 
   saveForm() {
@@ -162,6 +163,12 @@ export class EmpFormComponent implements OnInit, OnDestroy {
         next: (res) => {
           this.empService.saveEmpForm(payload).subscribe({
             next: (res) => {
+              if(this.editMode){
+              this.notify.showSuccess("Profile Updated Successfully", 'Employee Profile')
+              }
+              else{
+                this.notify.showSuccess("Profile Saved Successfully", 'Employee Profile')
+              }
               this.route.navigateByUrl('/employeemanagement/employeelist');
             },
             error: (err) => {},
