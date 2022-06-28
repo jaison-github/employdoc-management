@@ -34,7 +34,8 @@ export class MainLayoutComponent implements OnInit {
       "icon-dashboard",
       "comp-icon-two",
       "comp-icon-one",
-      "law-firm-icon"
+      "law-firm-icon",
+      "comp-three"
     ];
   }
 
