@@ -16,6 +16,7 @@ import { EmpStoreService } from './main-modules/employee-management/store/emp-ma
 @NgModule({
   declarations: [
     AppComponent,
+    
   ],
   imports: [
     BrowserAnimationsModule,
