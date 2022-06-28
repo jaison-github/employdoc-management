@@ -1,0 +1,221 @@
+<div class="col-12 dash-table-wraper pt-2" >
+  <div class="row m-0">
+    <div class="col-12">
+      <mat-form-field  class="cardtype" appearance="outline">
+        <mat-label> Search </mat-label>
+        <input type="text" #searchFilter matInput  (keyup)="searchitem(searchFilter.value)" >
+        </mat-form-field>
+    </div>
+
+    <div class="col-4">
+  <!-- <form class="date-block row m-0" [formGroup]="filterForm">
+   
+    <mat-form-field  class="cardtype col-md-5 p-0" appearance="outline">
+      <mat-label> Joined Date <small>(From Date) </small></mat-label>
+      <input matInput 
+          [matDatepicker]="fromDate" 
+          placeholder="From Date" 
+          formControlName="fromDate">
+        <mat-datepicker-toggle matSuffix [for]="fromDate"></mat-datepicker-toggle>
+        <mat-datepicker #fromDate></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field  class="cardtype col-md-5 p-0" appearance="outline">
+        <mat-label> Joined Date <small>(To Date) </small></mat-label>
+        <input matInput 
+          [matDatepicker]="toDate" 
+          placeholder="To Date" 
+          formControlName="toDate">
+        <mat-datepicker-toggle matSuffix [for]="toDate"></mat-datepicker-toggle>
+        <mat-datepicker #toDate></mat-datepicker>
+      </mat-form-field>
+     <button mat-button color="primary" class="btn btn-primary col-auto" (click)="applyFilter()">Submit</button>
+  </form> -->
+  </div>
+  </div>
+  
+
+
+
+    <table mat-table matSort [dataSource]="dataSource"  (matSortChange)="sortData($event)" 
+     matSortDisableClear
+    class="card-type-table bg-none">
+ 
+    <ng-container matColumnDef="empname">
+      <th
+        mat-header-cell
+        mat-sort-header
+        *matHeaderCellDef
+      >
+        <div class="table-head-col">Name</div>
+      </th>
+      <td mat-cell *matCellDef="let element">
+       
+        <div class="d-flex gap-2 justify-content-start align-items-center">
+          <div class="avatar"> 
+            <img *ngIf="element.imageid != ''" src="{{avatarUrl + element.imageid}}" />
+            <img *ngIf="element.imageid == ''" src="../../../../../assets/images/avatar.png" />            
+          </div>
+          <div>
+            {{ element.empcode }}
+          </div>
+        </div>
+      </td>
+    </ng-container>
+
+
+
+    <ng-container matColumnDef="empcode">
+        <th
+          mat-header-cell
+          mat-sort-header
+          *matHeaderCellDef
+        >
+          <div class="table-head-col">Code</div>
+        </th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.empcode }}
+        </td>
+      </ng-container>
+
+
+
+      <ng-container matColumnDef="joindate">
+        <th
+          mat-header-cell
+          mat-sort-header
+          *matHeaderCellDef
+        >
+          <div class="table-head-col">Joined Date</div>
+        </th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.joindate | CustomDate }}          
+        </td>
+      </ng-container>
+
+
+
+      <ng-container matColumnDef="dob">
+        <th
+          mat-header-cell
+          mat-sort-header
+          *matHeaderCellDef
+        >
+          <div class="table-head-col">Date of Birth</div>
+        </th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.dob | CustomDate}}
+        </td>
+      </ng-container>
+
+
+
+      <ng-container matColumnDef="cmpnycode">
+        <th
+          mat-header-cell
+          mat-sort-header
+          *matHeaderCellDef
+        >
+          <div class="table-head-col">Company Name</div>
+        </th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.cmpnycode }}
+        </td>
+      </ng-container>
+
+
+
+      <ng-container matColumnDef="applnumber">
+        <th
+          mat-header-cell
+          mat-sort-header
+          *matHeaderCellDef
+        >
+          <div class="table-head-col">VP Number</div>
+        </th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.applnumber }}
+        </td>
+      </ng-container>
+
+
+
+      <ng-container matColumnDef="status">
+        <th
+          mat-header-cell
+          mat-sort-header
+          *matHeaderCellDef
+        >
+          <div class="table-head-col">Status</div>
+        </th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.status }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="gender">
+        <th
+          mat-header-cell
+          mat-sort-header
+          *matHeaderCellDef
+        >
+          <div class="table-head-col">Gender</div>
+        </th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.gender }}
+        </td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="department">
+        <th
+          mat-header-cell
+          mat-sort-header
+          *matHeaderCellDef
+        >
+          <div class="table-head-col">Department</div>
+        </th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.department }}
+        </td>
+      </ng-container>
+
+
+      
+      <ng-container matColumnDef="profession">
+        <th
+          mat-header-cell
+          mat-sort-header
+          *matHeaderCellDef
+        >
+          <div class="table-head-col">Profession</div>
+        </th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.profession }}
+        </td>
+      </ng-container>
+
+
+
+          
+      <ng-container matColumnDef="netsalary">
+        <th
+          mat-header-cell
+          mat-sort-header
+          *matHeaderCellDef
+        >
+          <div class="table-head-col">Net Salary</div>
+        </th>
+        <td mat-cell *matCellDef="let element">
+          <div class="d-flex justify-content-end">
+            {{ element.netsalary }}
+          </div>
+          
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns" (click)="detailView(row)"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+
+  </div>

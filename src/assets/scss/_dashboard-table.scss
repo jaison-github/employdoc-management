@@ -1,0 +1,110 @@
+.dash-table-wraper {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  > table.mat-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 6px !important;
+    color: $primary-color;
+    font-family: $font-family-normal;
+
+    &.card-type-table{
+      border-spacing: 1px 6px !important;
+      tr{
+        padding: 1rem 1rem !important;
+        box-shadow: 0px 0px 4px #ddd;
+        td{
+          padding: 1rem !important;
+        }
+      }
+    }
+
+    tr {
+      td {
+        background-color: #fff;
+        border: none;
+        color: $primary-color;
+        padding: 0 1rem;
+        &:first-child{
+          padding: 0 1.5rem;
+        }
+
+        .avatar{
+          width: 40px;
+          height: 40px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 50%;
+          background: #eee;
+          border: 2px solid rgb(255 255 255 / 70%);
+          box-shadow: 0px 0px 5px #958484;
+          padding: 5px;
+          img{
+            width:100%;
+            height: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+        }
+      }
+    }
+    thead {
+      tr {
+        height: 40px;
+        border: none;
+        background-image:  linear-gradient(to right, #33add7, #637dc9, #33add7);  //linear-gradient(to right, #33add7, #4e5e8d, #33add7);
+        th {
+          background-color: transparent;
+    padding: 0.2rem 1rem;
+    font-weight: normal;
+    border: none;
+    color: #fff !important;
+          &:first-child{
+            padding: 0 1.5rem;
+          }
+
+          .mat-sort-header-arrow {
+            color: #f5fbff;
+        }
+        }
+        th:first-child {
+          border-radius: 10px 0 0 10px;
+        }
+
+        th:last-child {
+          border-radius: 0 10px 10px 0;
+        }
+      }
+    }
+  }
+
+
+}
+.mat-sort-header-arrow {
+  height: 16px !important;
+  width: 16px !important;
+  min-width: 16px !important;
+}
+.mat-sort-header-stem {
+  width: 0 !important;
+}
+.mat-sort-header-pointer-middle {
+  height: 1px !important;
+  width: 1px !important;
+  background: $primary-color !important;
+}
+.mat-sort-header-pointer-left,
+.mat-sort-header-pointer-right {
+  width: 8px !important;
+  height: 1px !important;
+  background: $primary-color !important;
+}
+.mat-sort-header-indicator {
+  height: 1px !important;
+}
+.mat-sort-header-container {
+  justify-content: space-between;
+}

@@ -1,0 +1,72 @@
+<div id="docInOutList"
+    class="container-fluid container--xl container--xxl main-page-wrap bg-trans-white  my-5  relative">
+    <div class="row bg-theme-gradient page-highlight-header">
+        <div class="col-6">
+            <h3>Document In & Out</h3>
+        </div>
+        <div class="col-6 row justify-content-end p-0">
+            <div class="col-md-2  d-flex justify-content-end p-0">
+                <button class="text-white" mat-raised-button color="accent" (click)="goToDocAction(null);">Create New</button>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-12 dash-table-wraper pt-2">
+
+        <div class="col-12">
+            <mat-form-field  class="cardtype" appearance="outline">
+              <mat-label> Search </mat-label>
+              <input type="text" #searchFilter matInput  (keyup)="searchitem(searchFilter.value)" >
+              </mat-form-field>
+          </div>
+
+
+        <table mat-table matSort [dataSource]="dataSource" matSortDisableClear class="bg-none">
+
+            
+
+            <ng-container matColumnDef="empcode">
+                <th mat-header-cell mat-sort-header *matHeaderCellDef>
+                    <div class="table-head-col">Employee Name</div>
+                </th>
+                <td mat-cell *matCellDef="let element" class="px-0">
+
+
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div class="col-auto mr-3"  style="width:30px"> <small [attr.data-tag]="element.docaction"  [ngClass]="{'primary-tag': element.docaction == 'OUT', 'secondary-tag': element.docaction == 'IN'}"   class="document widgets widget-tag tagLeft verticalTag  px-0"></small>
+                        </div>
+                        <div class="col px-2"> {{ element.empcode }}</div>
+
+                    </div>
+                </td>
+            </ng-container>
+
+
+            <ng-container matColumnDef="docdate">
+                <th mat-header-cell mat-sort-header *matHeaderCellDef>
+                    <div class="table-head-col">Date</div>
+                </th>
+                <td mat-cell *matCellDef="let element">
+                    {{ element.docdate | CustomDate }}
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="remarks">
+                <th mat-header-cell mat-sort-header *matHeaderCellDef>
+                    <div class="table-head-col">Remarks</div>
+                </th>
+                <td mat-cell *matCellDef="let element">
+                    {{ element.remarks }}
+                </td>
+            </ng-container>
+
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns" (click)="goToDocAction(row.id)"></tr>
+
+        </table>
+
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+
+    </div>
+</div>

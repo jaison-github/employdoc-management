@@ -1,0 +1,50 @@
+@use "@angular/material" as mat;
+@import "variables";
+@import "toaster";
+@import "fontawesome";
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins";
+@import "mixins-generic";
+@import "generic";
+@import "layout";
+@import "fonts";
+@import "dashboard-table";
+@import "widgets";
+@import "buttons";
+
+@import "custom_styles";
+
+//Overriding bootstrap Theme........
+$theme-colors: map-remove($theme-colors, "info", "dark");
+$theme-colors: (
+  "primary": $primary-color,
+  "secondary": $secondary-color,
+  "light": $light,
+  "warning": $warning-color,
+);
+
+$navbar-light-color: #212529;
+$navbar-light-hover-color: #6610f2;
+$navbar-light-active-color: #6610f2;
+$primary-color-rgb: red;
+
+$form-floating-height: add(4.5rem, $input-height-border);
+$form-floating-line-height: 1.25;
+$form-floating-padding-x: $input-padding-x;
+$form-floating-padding-y: 1rem;
+$form-floating-input-padding-t: 1.625rem;
+$form-floating-input-padding-b: 0.625rem;
+$form-floating-label-opacity: 0.65;
+$form-floating-label-transform: scale(0.85) translateY(-1rem) translateX(0);
+$form-floating-transition: opacity 0.1s ease-in-out, transform 0.1s ease-in-out;
+
+@import "bootstrap/scss/bootstrap.scss";
+@import "components/header";
+@import "components/footer";
+@import "components/login-component";
+
+
+
+
+

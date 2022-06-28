@@ -1,0 +1,55 @@
+<div class="login-form-section bg-theme-gradient">
+  <div class="login-wraper">  
+    <div class="logo-overlay"></div>
+    <div class="logo-section">
+
+    </div>
+    <div class="form-section">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <p class="d-flex invalid-feedback" *ngIf="error">{{error}}</p>
+        <div class="input-group input-group-prepend mt-3 mb-3">
+          <span class="input-group-text">
+            <i class="far fa-envelope-open"></i>
+          </span>
+          <div class="flex-grow-1">
+            <input autocomplete="off" type="text" class="form-control py-3 my-0" name="userName" formControlName="userName"
+              placeholder="User Name" />
+          </div>
+  
+        </div>
+        <mat-error
+          *ngIf="(loginForm?.controls['userName']?.touched || isSubmitClicked)&& loginForm?.controls['userName']?.errors?.required">
+          You must provide a <strong> Username</strong>
+        </mat-error>
+        <div class="input-group  input-group-prepend mt-3 mb-3">
+          <span class="input-group-text">
+            <i class="far fa-lock"></i>
+          </span>
+          <div class=" flex-grow-1">
+            <input autocomplete="off" type="password" class="form-control py-3 my-0" name="code1" placeholder="Password"
+              formControlName="password" />
+          </div>
+        </div>
+        <mat-error
+          *ngIf="(loginForm?.controls['password']?.touched || isSubmitClicked)&& loginForm?.controls['password']?.errors?.required">
+          You must provide a <strong> Password</strong>
+        </mat-error>
+  
+  
+  
+        <div class="form-remember my-4">
+          <input class="form-remember-checkbox me-2" type="checkbox" id="rememberCheck" [checked]="isRemerberChecked"
+            (change)="isRemerberChecked = !isRemerberChecked" />
+          <label class="form-remember-label" for="rememberCheck">
+            Keep me signed in
+          </label>
+        </div>
+  
+        <div class="form-submit col-12">
+          <button type="submit" class="btn btn-primary col-12">SUBMIT</button>
+        </div>
+      </form>
+    </div>
+ 
+  </div>
+</div>

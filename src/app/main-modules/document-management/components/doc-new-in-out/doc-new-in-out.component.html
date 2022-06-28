@@ -1,0 +1,179 @@
+<div id="docInOutList"
+    class="container-fluid container--xl container--xxl main-page-wrap bg-trans-white  my-5  relative">
+    <form [formGroup]="form">
+        <div class="row bg-theme-gradient page-highlight-header">
+            <div class="col-6">
+                <h3>Document Action</h3>
+            </div>
+            <div class="col-6 row justify-content-end p-0">
+                <div class="col-md-2  d-flex justify-content-end p-0">
+                    <button class="text-white" mat-raised-button color="accent" (click)="onSubmit();">Save</button>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+
+            <div class="col-md-6">
+
+                <div class="row  doc-action-wrap">
+                    <div class="action-wrap d-flex col-lg-12">
+                        <div (click)="setDocHand('IN')" class="action-btn actionType withCompany col">
+                            <mat-icon class="size_xl" svgIcon="file-folder" aria-hidden="false"></mat-icon>
+                            <label>Company</label>
+                        </div>
+                        <div class="action-btn actionStatus">
+                            <div class="switch-btn">
+                                <input formControlName="dochand" type="checkbox" id="switch" /><label
+                                    for="switch"></label>
+                            </div>
+                        </div>
+                        <div (click)="setDocHand('OUT')" class="action-btn  actionType  withEmp col">
+                            <label>Employee</label>
+
+                            <mat-icon class="size_xl" svgIcon="file-in-hand" aria-hidden="false"></mat-icon>
+                        </div>
+                        <div class="calendr-btn">
+
+
+
+
+                            <mat-form-field appearance="outline">
+                                <input style="display: none;" (click)="dobDatePicker.open()" formControlName="date"
+                                    matInput [matDatepicker]="dobDatePicker" autocomplete="off" readonly />
+                                <time (click)="dobDatePicker.open()" class="icon">
+                                    <em>{{selectedDate?.year}}</em>
+                                    <strong>{{selectedDate?.month}}</strong>
+                                    <span>{{selectedDate?.day}}</span>
+                                </time>
+                                <mat-datepicker #dobDatePicker> </mat-datepicker>
+                            </mat-form-field>
+
+
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row emplistwrap">
+                    <div class="col-md-11  card">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Select Employee</mat-label>
+                            <input type="text" placeholder="Selecte Employee Name" aria-label="empcode" matInput
+                                formControlName="empcode" [matAutocomplete]="emplist">
+                            <mat-icon matSuffix>keyboard_arrow_down</mat-icon>
+
+                            <mat-autocomplete #emplist="matAutocomplete" [displayWith]="displayFn.bind(this)">
+                                <mat-option *ngFor="let option of empDropDownFilterlist" [value]="option.code">
+                                    {{option.name}}
+                                </mat-option>
+                            </mat-autocomplete>
+                        </mat-form-field>
+                        <mat-error *ngIf="errorHandling('empcode', 'required')">
+                            You must select <strong>Employee</strong>
+                        </mat-error>
+                    </div>
+
+
+                    <div class="col-lg-11 my-4 card">
+                        <mat-form-field>
+                            <mat-label>Notes</mat-label>
+                            <textarea matInput formControlName="remarks" matTextareaAutosize matAutosizeMinRows=1
+                                matAutosizeMaxRows=5></textarea>
+                        </mat-form-field>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+            <div class="col-md-6">
+                <div class="col-12 doc-list-wrap dash-table-wraper my-3">
+                    <table mat-table matSort [dataSource]="dataSource" matSortDisableClear
+                        class="bg-none ">
+                        <!-- Checkbox Column -->
+                        <ng-container matColumnDef="select">
+                            <th mat-header-cell *matHeaderCellDef>
+                                <mat-checkbox (change)="$event ? masterToggle() : null"
+                                    [checked]="selection.hasValue() && isAllSelected()"
+                                    [indeterminate]="selection.hasValue() && !isAllSelected()">
+                                </mat-checkbox>
+                            </th>
+                            <td mat-cell *matCellDef="let row">
+                                <mat-checkbox (click)="$event.stopPropagation()"
+                                    (change)="$event ? selection.toggle(row) : null"
+                                    [checked]="selection.isSelected(row)">
+                                </mat-checkbox>
+                            </td>
+                        </ng-container>
+                 
+
+                        <ng-container matColumnDef="docnumber">
+                            <th mat-header-cell mat-sort-header *matHeaderCellDef>
+                                <div class="table-head-col">Document Number</div>
+                            </th>
+                            <td mat-cell *matCellDef="let element">
+                                {{ element.docnumber }}
+                            </td>
+                        </ng-container>
+
+
+                        <ng-container matColumnDef="doctype">
+                            <th mat-header-cell mat-sort-header *matHeaderCellDef>
+                                <div class="table-head-col">Document Type</div>
+                            </th>
+                            <td mat-cell *matCellDef="let element">
+                                {{ element.doctype }}
+                            </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="issuedate">
+                            <th mat-header-cell mat-sort-header *matHeaderCellDef>
+                                <div class="table-head-col">Issue Date</div>
+                            </th>
+                            <td mat-cell *matCellDef="let element">
+                                {{ element.issuedate | CustomDate }}
+                            </td>
+                        </ng-container>
+
+
+                        <ng-container matColumnDef="expirydate">
+                            <th mat-header-cell mat-sort-header *matHeaderCellDef>
+                                <div class="table-head-col">Expiry Date</div>
+                            </th>
+                            <td mat-cell *matCellDef="let element">
+                                {{ element.expirydate | CustomDate}}
+                            </td>
+                        </ng-container>
+
+
+
+
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns" (click)="selection.toggle(row)"></tr>
+
+
+
+                    </table>
+
+
+
+                    <div class="card text-center" *ngIf="gridData?.length == 0 ">
+                        <h3 class="m-0">No Data Found. !!</h3>
+                    </div>
+                    <!-- <mat-paginator  *ngIf="gridData?.length > 0 " [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator> -->
+
+                </div>
+
+            </div>
+
+
+
+
+        </div>
+    </form>
+</div>

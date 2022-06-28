@@ -1,0 +1,86 @@
+::ng-deep{
+    .awesome-uploader
+    {
+        max-width: 100% !important;
+        .custom-drag{
+            padding: 0 !important;
+            max-width: 100% !important;
+        }
+
+        .file-drop-wrapper{
+            background: none !important;
+            padding: 0 !important;
+        }
+        .files-preview-wrapper{
+            file-preview-container{
+                background: none !important;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+            
+        }
+
+        file-preview-item{           
+            max-width: 100% !important;
+            width: 100% !important;
+            min-width: 50%;
+            flex:1 0 0% ;
+        }
+
+        .document-info{
+            .fileName{
+                display: block;
+    max-width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ELLIPSIS;
+            }
+           
+        }
+    
+    }
+
+   
+  .dragdrop-container {
+    border: none !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+
+    > i{
+      font-size: 45px;
+      margin-bottom: 10px;
+  
+    }
+
+
+}
+    .ngx-checkmark-wrapper{
+      display: none !important;
+    }
+       
+}
+
+::ng-deep {
+    @media (min-width: 960px) {
+      file-preview-item {
+        width: 100% !important;
+      }
+    }
+  }
+  .file__title {
+    margin-right: 20px;
+  }
+  .file__info {
+    max-width: none;
+  }
+  .file__wrap {
+    padding: 13px;
+  }
+  .file-btns {
+    max-width: 20%;
+  }
+

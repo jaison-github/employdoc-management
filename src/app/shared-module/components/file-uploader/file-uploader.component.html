@@ -1,0 +1,60 @@
+<div class="file-wrap">
+    <ngx-awesome-uploader class="awesome-uploader d-block col-12" #uploader [adapter]="adapter" [fileMaxCount]="fileMaxCount" [fileMaxSize]="fileMaxSize"
+      [uploadType]="uploadType" (validationError)="onValidationError($event)" [fileExtensions]="fileExtensions" 
+      [enableCropper]="false" (uploadSuccess)="onUploadSuccess($event)" (removeSuccess)="onRemoveSuccess($event)"
+      (fileAdded)="onFileAdded($event)" (fileRemoved)="onFileRemoved($event)"   >
+      <div class="dropzoneTemplate" #drop [class.hide-drop]="!showDrop" [hidden]="hideDropArea">
+        <div class="dragdrop-container">
+          <i class="fad fa-folder-open folder-icon"></i>
+          <label for="fileDropRef">Drop your file here or click to add</label>
+          <small>Maximum size 5MB</small>
+        </div>
+        <mat-error *ngIf="error.show" class="text-center my-3">
+          {{error.msg}} 
+       </mat-error>
+      </div>
+     
+    </ngx-awesome-uploader>
+    <ng-template #myItemTemplate let-fileItem="fileItem" let-uploadProgress="uploadProgress">
+      <div class="file col-12">
+        <!-- <div class="file__wrap" fxFlex fxLayout="row" fxLayoutAlign="start center">
+          <div class="file__info" fxFlex fxLayout="column">
+             <span class="file__title">{{ fileItem?.fileName }}</span>
+            <span class="file__time" *ngIf="uploadProgress < 100">{{ uploadProgress }}%</span>
+            <span class="file__text" *ngIf="!uploadProgress">Date Attached:
+              {{ fileItem?.file?.lastModifiedDate | date: "medium" }}</span>
+            <span class="file__text" *ngIf="!uploadProgress">Attached by: User Name</span>
+          </div>
+          <button *ngIf="!uploadProgress" type="button" class="file__btn" (click)="removeFile(fileItem)">
+            <mat-icon svgIcon="file-remove" aria-hidden="false"></mat-icon>
+          </button>
+        </div> -->
+
+        <!-- <div class="col-12" >
+          <div class="document p-2">
+            <div class="document-details">
+              <div class="document-icon">
+                <mat-icon *ngIf="fileItem?.file?.type ===TypeFile.PNG" svgIcon="png-icon" aria-hidden="false"></mat-icon>
+                <mat-icon *ngIf="fileItem?.file?.type !=TypeFile.PNG && fileItem?.file?.type !=TypeFile.PDF " svgIcon="jpg-icon" aria-hidden="false"></mat-icon>
+                <mat-icon *ngIf="fileItem?.file?.type===TypeFile.PDF" svgIcon="pdf-file-icon" aria-hidden="false">
+                </mat-icon>
+              </div>
+              <div class="document-info" attr.title="fileItem?.fileName">
+                <strong class="fileName">{{ fileItem?.fileName }}</strong>
+              </div>
+            </div>
+            <div class="document-action">
+              <button type="button"   class="btn btn-delete" (click)="removeFile(fileItem)">
+                <i class="fa fa-trash"> </i>
+              </button>
+            </div>
+          </div>
+        </div> -->
+
+
+
+      </div>
+    </ng-template>
+
+  </div>
+  

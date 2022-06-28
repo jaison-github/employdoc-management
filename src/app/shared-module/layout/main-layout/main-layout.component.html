@@ -1,0 +1,66 @@
+<div class="main-app-container bg-default-gradient">
+    <div class="app-main-navigation relative col-auto collapsed" style="z-index:1 ;">
+        <div class="main-menu-logo">
+            <a href=""><img class="logo" src="assets/images/logo/eazible_short.png" /></a>
+        </div>
+        <div class="main-menu-content" style="height: 488px">
+            <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+                <li class="nav-item has-sub" routerLink="/dashboard"  >
+                    <a>
+                        <mat-icon svgIcon="icon-dashboard" aria-hidden="false"></mat-icon>
+                    </a>
+                    <ul class="menu-content">
+                        <span class="menu-title">Dashboard</span>
+                    </ul>
+                </li>
+             
+                <li class="nav-item has-sub">
+                    <a>
+                        <mat-icon svgIcon="folder-1439" aria-hidden="false"></mat-icon>
+                    </a>
+                    <ul class="menu-content">
+                        <span class="menu-title">Company Settings</span>
+                    </ul>
+                </li>
+                <li class="nav-item has-sub" routerLink="/employeemanagement"  >
+                    <a>
+                        <mat-icon svgIcon="skill-8805" aria-hidden="false"></mat-icon>
+                    </a>
+                    <ul class="menu-content">
+                        <span class="menu-title">Employee Profile</span>
+                    </ul>
+                </li>
+                <li class="nav-item has-sub">
+                    <a>
+                        <mat-icon svgIcon="resume-9873" aria-hidden="false"></mat-icon>
+                    </a>
+
+                    <ul class="menu-content">
+                        <span class="menu-title">Document Management</span>
+                        <li>
+                            <a class="menu-item" routerLink="/documentmanagement">Document In/Out</a>
+                        </li>
+                        <li>
+                            <a class="menu-item" routerLink="/documentmanagement/documentexpirylist" href="dashboard-analytics.html">Document Expiry</a>
+                        </li>
+                    </ul>
+
+
+
+                </li>
+
+            </ul>
+        </div>
+    </div>
+    <div class="app-main-wrapper col relative" style="z-index:0 ;">
+        <section class="col-auto">
+            <app-main-header></app-main-header>
+        </section>
+        <section class="col app-body">
+            <router-outlet></router-outlet>
+        </section>
+        <!-- <section class="col-auto">
+            <app-main-footer></app-main-footer>
+        </section> -->
+    </div>
+</div>

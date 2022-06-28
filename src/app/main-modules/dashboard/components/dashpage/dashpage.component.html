@@ -1,0 +1,170 @@
+<div id="docInOutList" class="container-fluid container--xl container--xxl main-page-wrap bg-trans-white  my-5  relative">
+    <div class="row bg-theme-gradient page-highlight-header">
+        <div class="col-6">
+            <h3>Dashboard</h3>
+        </div>
+        <div class="col-6 row justify-content-end">
+            <div class="col-md-2">
+            </div>
+        </div>
+
+    </div>
+<div class="row p-4 ">
+    <div class="col-md-2">
+        <div class="row col-md-12 quickLinkWrap">
+            <div ><h3  class="half-underline">Quick Links</h3></div>
+            <div class="col-md-12 mb-1">
+                <div class="link-item">
+                    <div>
+                        <mat-icon svgIcon="icon-signout" aria-hidden="false"></mat-icon>
+                    </div>
+                    <div>
+                        <strong>Company Management</strong>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-md-12 p-2">
+                <div class="link-item" routerLink="/employeemanagement">
+                    <div>
+                        <mat-icon svgIcon="icon-signout" aria-hidden="false"></mat-icon>
+                    </div>
+                    <div>
+                        <strong>Employee Profile</strong>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-md-12 p-2">
+                <div class="link-item"  routerLink="/documentmanagement">
+                    <div>
+                        <mat-icon svgIcon="icon-signout" aria-hidden="false"></mat-icon>
+                    </div>
+                    <div>
+                        <strong>Document In & Out</strong>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+       
+   
+    </div>
+
+    <div class="col-md-5 notificationList ">
+
+        <div id="hightprioNotifications">
+            <div ><h3  class="half-underline">Low Priority Notifications</h3></div>
+            <ng-container *ngFor="let item of alertList; let idx = index">
+                <div class="list-wrap mb-2">
+                    <mat-accordion>
+                    <mat-expansion-panel [expanded]="idx == 0 ? true: false">
+                        <mat-expansion-panel-header >
+                          <mat-panel-title>
+                           {{item.document}}
+                          </mat-panel-title>
+                          <mat-panel-description class="justify-content-end">
+                            <span class="notify-badge">{{item.list?.length}}</span>
+                          </mat-panel-description>
+                        </mat-expansion-panel-header>
+                        
+    
+                        <ul>
+                            <li class="d-flex justify-content-between" *ngFor="let listitem of item.list">
+                                <div class="col row m-0 p-0 ">
+                                     <div class="avatar d-flex justify-content-center">
+                                         <img class="" src="../../../../../assets/images/avatar.png" />
+                                     </div>
+                                     <div  class=" col  d-flex flex-column justify-content-center">
+                                        <strong class="text-sceondary">{{listitem.employee}}</strong>
+                                        <small class="text-danger">{{listitem.msg}}</small>
+                                     </div>
+
+                                </div>
+                                <div class="col-auto">
+                                    <div class="remDaysWrap">
+                                        <small>Remaining</small>
+                                        <strong>
+                                            {{listitem.remDays}}
+                                        </strong>
+                                        <small>Days</small>
+
+                                    </div>
+                                   
+                                </div>
+
+                            </li>
+                        </ul>
+                        
+                      </mat-expansion-panel>
+                    </mat-accordion>
+                </div>
+            </ng-container>
+        
+
+        </div>
+   
+    </div>
+
+    <div class="col-md-5 notificationList ">
+
+        <div id="hightprioNotifications">
+            <div ><h3  class="half-underline">High Priority Notifications</h3></div>
+            <ng-container *ngFor="let item of alertList; let idx = index">
+                <div class="list-wrap mb-2">
+                    <mat-accordion>
+                    <mat-expansion-panel [expanded]="idx == 0 ? true: false">
+                        <mat-expansion-panel-header >
+                          <mat-panel-title>
+                           {{item.document}}
+                          </mat-panel-title>
+                          <mat-panel-description class="justify-content-end">
+                            <span class="notify-badge">{{item.list?.length}}</span>
+                          </mat-panel-description>
+                        </mat-expansion-panel-header>
+                        
+    
+                        <ul>
+                            <li class="d-flex justify-content-between" *ngFor="let listitem of item.list">
+                                <div class="col row m-0 p-0 ">
+                                     <div class="avatar d-flex justify-content-center">
+                                         <img class="" src="../../../../../assets/images/avatar.png" />
+                                     </div>
+                                     <div  class=" col  d-flex flex-column justify-content-center">
+                                        <strong class="text-sceondary">{{listitem.employee}}</strong>
+                                        <small class="text-danger">{{listitem.msg}}</small>
+                                     </div>
+
+                                </div>
+                                <div class="col-auto">
+                                    <div class="remDaysWrap">
+                                        <small>Remaining</small>
+                                        <strong>
+                                            {{listitem.remDays}}
+                                        </strong>
+                                        <small>Days</small>
+
+                                    </div>
+                                   
+                                </div>
+
+                            </li>
+                        </ul>
+                        
+                      </mat-expansion-panel>
+                    </mat-accordion>
+                </div>
+            </ng-container>
+        
+
+        </div>
+   
+    </div>
+
+   
+   
+</div>
+    </div>

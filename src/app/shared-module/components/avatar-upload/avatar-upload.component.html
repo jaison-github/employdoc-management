@@ -1,0 +1,26 @@
+<div class="uploader-wrapper avatar-uploader">
+    <ngx-awesome-uploader #uploader [adapter]="adapter" [fileMaxCount]="fileMaxCount" [fileMaxSize]="fileMaxSize" [uploadType]="uploadType"
+    (validationError)="onValidationError($event)" [fileExtensions]="fileExtensions"
+    [enableCropper]="enableCropper" (uploadSuccess)="onUploadSuccess($event)" (removeSuccess)="onRemoveSuccess($event)"
+    (fileAdded)="onFileAdded($event)" [itemTemplate]="myItemTemplate"    [accept]="'.jpg, .png'"   [cropperOptions]='cropperOptions' >
+    <div class="dropzoneTemplate" #drop>
+      <div class="user-avatar user-avatar-xl">
+        <div class="avatar-img-wrap"><img [attr.src]="imgUrl" /></div>
+        <div class="edit">
+          <a> <i class="fas fa-pencil"></i> </a>
+        </div>
+      </div>
+
+      <mat-error *ngIf="error.show">
+        {{error.msg}}
+      </mat-error>
+    </div>
+  </ngx-awesome-uploader>
+</div>
+
+<ng-template #myItemTemplate let-fileItem="fileItem" let-uploadProgress="uploadProgress">
+    <!-- <p>File Size: {{fileItem.file.size}}</p>
+    <p>File Name: {{fileItem.fileName}}</p>
+    <p> Upload Progress: {{uploadProgress}} % </p>
+    <button  (click)="uploader.removeFile(fileItem)">Remove</button> -->
+  </ng-template>

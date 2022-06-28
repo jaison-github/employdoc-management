@@ -1,0 +1,49 @@
+.login-form-section{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:100%;height:100%;
+    // background-image: url("./../../../../assets/images/logo/eazible_short.png");
+    // background-repeat: no-repeat;
+    // background-size: 100%;
+    // background-position: 0px -110px;
+    .login-wraper{
+        width: 100%;
+        padding: 5rem;
+        background: rgba(255,255,255,0.2);
+        box-sizing: border-box;
+        max-width: 600px;
+        border-radius: 10px;
+        background-image: linear-gradient(to right, #33add7, #ffffff5e, #33add7);
+        .logo-overlay{
+            background-image: url("./../../../../assets/images/logo/eazible_short.png");
+            background-repeat: no-repeat;
+            background-size: 46%;
+            background-position: 0;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 89px;
+            left: 249px;
+            opacity: 0.2;
+            mix-blend-mode: color-burn;
+            z-index: 0;
+        }
+    
+        .input-group{
+            background: #e8f0fe;
+    border-radius: 6px;
+        }
+
+        input, .input-group-text{
+            background: none !important;
+            border:none;
+        }
+
+        .form-section{
+            position: relative;
+            z-index: 1;
+        }
+        
+    }
+}

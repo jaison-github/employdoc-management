@@ -1,0 +1,84 @@
+.bg-light {
+  background-color: $bg-light !important;
+}
+hr {
+  background-color: #cdcdcd !important;
+}
+.text-right {
+  text-align: right!important ;
+}
+.text-left {
+  text-align: left !important;
+}
+.text-center {
+  text-align: center !important;
+}
+.relative {
+  position: relative !important;
+}
+.rotateText {
+  transform: rotate(-90deg);
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+  position: absolute;
+}
+
+.no-scrollbar {
+  overflow: auto;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.small-device-only {
+  display: block;
+  @include respond-to($large) {
+    display: none;
+  }
+}
+
+.badge-header{
+  .badge-header-label{
+
+  
+    @media only screen and (max-width: 1200px){
+      width:100%;
+      display: block !important;
+    }
+
+
+  }
+  .badge-header-block{
+    
+    @media only screen and (max-width: 1200px){
+      width:100%;
+      display: block !important;
+
+      .row{
+        flex-wrap: wrap;
+    transform: scale(0.9);
+    transform-origin: left;
+    justify-content: flex-start !important;
+      }
+    }
+
+
+    @media only screen and (max-width: 1600px){  
+      .row{
+        flex-wrap: wrap;
+    transform: scale(0.9);
+    transform-origin: left;
+    justify-content: flex-start !important;
+      }
+    }
+  }
+}
+
+
+.file-exist-bg{
+  background-color: rgba(var(--bs-secondary-rgb), 0.2) !important;
+  border-color: $secondary-color !important; 
+}
+
+

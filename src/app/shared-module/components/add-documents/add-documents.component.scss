@@ -1,0 +1,72 @@
+.activeDocWrap {
+  position: relative;
+}
+
+.document-action {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  padding: 10px;
+  background: #314377;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+
+  a {
+    color: #fff;
+  }
+}
+
+::ng-deep {
+  .saved-uploaded-files {
+    .file-preview-wrapper {
+      box-shadow: 0px 0px 5px #ddd;
+      max-width: 120px;
+      display: flex;
+      padding: 0.5rem;
+      align-items: center;
+      border-radius: 6px;
+      background: #fefefe;
+      border: 1px solid #ddd;
+      flex-direction: column;
+      position: relative;
+      margin: 2px;
+      .file-preview-thumbnail {
+        margin-bottom: 5px;
+
+        mat-icon {
+          width: 32px;
+          height: 32px;
+        }
+      }
+      .file-preview-description {
+        width: 100%;
+        overflow: hidden;
+        * {
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          width: 100%;
+          overflow: hidden;
+        }
+      }
+      .file-preview-actions {
+        position: absolute;
+    top: 0;
+    right: 0;
+    width: 16px;
+    height: 16px;
+    background: red;
+    color: #fff;
+    text-align: center;
+    font-size: 0.6rem;
+        &:after{
+            content: "X";
+        }
+      }
+    }
+  }
+}

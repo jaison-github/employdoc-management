@@ -1,0 +1,310 @@
+<div class="row my-2">
+  <div class="col-md-12">
+    <fieldset>
+      <div class="row justify-content-between">
+        <div class="col-auto">
+          <legend *ngIf="docType == 'document'">
+            <div>
+              <h3 class="half-underline">Documents</h3>
+            </div>
+          </legend>
+          <legend *ngIf="docType == 'certificate'">
+            <div>
+              <h3 class="half-underline">Certificates</h3>
+            </div>
+          </legend>
+        </div>
+        <div class="col-auto">
+          <div class="file-uploader">
+            <button type="button" mat-raised-button color="accent" (click)="openModal(addDocument)" style="color:white">
+              <small *ngIf="docType == 'document'">
+                + Add Documents</small>
+              <small *ngIf="docType == 'certificate'">
+                + Add Certificates</small>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="row align-items-center my-2" *ngIf="docType == 'certificate'">
+        <ng-container *ngTemplateOutlet="certificateTemplate"> </ng-container>
+      </div>
+
+      <div class="row align-items-center my-2" *ngIf="docType == 'document'">
+        <ng-container *ngTemplateOutlet="docTemplate"> </ng-container>
+      </div>
+    </fieldset>
+  </div>
+</div>
+
+<!-- _________________________ TEMPLATES _____________________________________-->
+
+<!-- ########### Certificate ############-->
+<ng-template #certificateTemplate>
+  <div class="row align-items-center m-0" *ngIf="documentList?.length == 0">
+    <div class="col-md-12  p-0">
+      <div class="empty-content">
+        <p>
+          <a (click)="openModal(addDocument);"> No Certificates Has Been Added, Please Click To Add </a>
+        </p>
+      </div>
+    </div>
+  </div>
+  <ng-container *ngFor="let certificate of documentList">
+    <div class="col-md-3 mb-3" *ngIf="documentList?.length > 0">
+      <div class="document">
+        <div class="document-details">
+          <div class="document-icon" *ngIf="docType == 'document'">
+            <img src="assets/img/icon-pdf.svg" alt="" />
+          </div>
+          <div class="document-info">
+            <h6 class="text-primary">{{ certificate?.UserDocumentName }}</h6>
+            <p class="sub-text">{{getdoxTypeName(certificate?.doctype)}}</p>
+            <p class="sub-text" *ngIf="certificate?.IssueAuthority">{{ certificate?.IssueAuthority }}</p>
+            <p class="sub-text" *ngIf="!certificate?.IssueAuthority">N/A</p>
+            <p>{{ certificate?.IssueDate | CustomDate }}</p>
+          </div>
+        </div>
+        <div class="document-action">
+          <a (click)="confirmDelete(certificate)" class="btn-delete">
+            <!-- <img
+                    src="assets/img/icon-download.svg"
+                  /> -->
+            <!-- <i class="fa fa-trash"> </i> -->
+            <img src="assets/img/icon-delete.svg">
+          </a>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</ng-template>
+
+<!-- ########### Documents ############-->
+<ng-template #docTemplate>
+  <div class="row align-items-center m-0" *ngIf="documentList?.length == 0">
+    <div class="col-md-12 p-0">
+      <div class="empty-content">
+        <p>
+          <a (click)="openModal(addDocument);"> No Documentation Has Been Added, Please Click To Add </a>
+        </p>
+      </div>
+    </div>
+  </div>
+  <ng-container *ngFor="let document of documentList">
+    <div class="col-md-3 mb-3" *ngIf="documentList?.length > 0">
+      <div class="document bg-white widgets  widget-tag tagLeft verticalTag" [attr.data-tag]="document.dochand" 
+       [ngClass]="[document.dochand == 'IN'? 'secondary-tag' : 'primary-tag']"  >
+        <div class="document-details" >
+          <div class="document-icon">
+           
+          </div>
+          <div class="document-info text-primary">
+         
+            <p class="sub-text">{{getdoxTypeName(document?.doctype)}}</p>
+            <small class="text-primary">Expire on: {{document.expirydate | CustomDate}}</small>
+          </div>
+        </div>
+        <div class="document-action">
+          <a (click)="editDocument(document)" class="btn-delete">
+            <mat-icon matSuffix>edit</mat-icon>
+
+          </a>
+          <a (click)="confirmDelete(document)" class="btn-delete">
+            <mat-icon matSuffix>delete</mat-icon>
+
+          </a>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</ng-template>
+
+<!-- ########### Add File Popup ############-->
+<ng-template #addDocument>
+  <div class="modal-header widgets widget-tag modal-tag secondary-tag tagLeft py-3" data-tag="Add Documents">
+    <!-- <h4 class="modal-title pull-left" *ngIf="docType == 'document'">
+      ADD DOCUMENTS
+    </h4>
+    <h4 class="modal-title pull-left" *ngIf="docType == 'certificate'">
+      ADD CERTIFCTE
+    </h4> -->
+
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="addDocmodalRef?.hide()">
+      <span aria-hidden="true" class="visually-hidden"><img src="../../../../../shared-assets/images/icon-close.svg"
+          alt="" /></span>
+    </button>
+  </div>
+  <div class="modal-body pt-2 pb-0">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="upload-body">
+
+        <div class="row mb-1">
+          <div class="col-md-12" *ngIf="activeDoc == null && selectedDocument == null ">
+            <mat-form-field appearance="outline">
+              <mat-label>Select Type Of Document</mat-label>
+              <mat-select disableOptionCentering panelClass="mt-6" #hdrTypeGrpSelect
+                (selectionChange)="onactiveDocTypeChange($event)" formControlName="doctype" required>
+                <mat-option>None</mat-option>
+                <mat-option *ngFor="let item of docTypeList" [value]="item.code">
+                  {{ item.name }}
+                </mat-option>
+              </mat-select>
+
+              <mat-error *ngIf="errorHandling('doctype', 'required')">
+                You must select a <strong *ngIf="docType == 'certificate'"> Certificate Type </strong> <strong
+                  *ngIf="docType == 'document'"> Document Type </strong>
+              </mat-error>
+              <mat-error *ngIf="errorHandling('doctype', 'incorrect')">
+                You already uploaded document under the same type.
+              </mat-error>
+            </mat-form-field>
+
+          </div>
+
+          <div *ngIf="activeDoc !== null || selectedDocument !== null ">
+            <mat-form-field appearance="outline">
+              <mat-label>Selected Type Of Document</mat-label>
+              <input matInput value="{{getdoxTypeName(activeDocType)}}" readonly />
+            </mat-form-field>
+          </div>
+
+        </div>
+
+
+
+
+        <div class="row mb-2 saved-uploaded-files" *ngIf="uploadedFiles?.length > 0 && editMode">
+          <ng-container *ngFor="let file of uploadedFiles">
+            <div class="file-preview-wrapper ng-star-inserted">
+              <div class="file-preview-thumbnail">
+                <mat-icon class="other-preview-thumbnail" [svgIcon]="file.fileName | getFileTypeIcon"> </mat-icon>
+              </div>
+              <div class="file-preview-description"><a href="javascript:void(0)" class="file-preview-title"
+                  [attr.title]="file.fileName">
+                  <p>{{file.fileName}}</p>
+                </a>
+              </div>
+              <div class="file-preview-actions" (click)="removeDoxentry(file)">
+              </div>
+            </div>
+          </ng-container>
+        </div>
+
+        
+
+        <div class="row" *ngIf="!errorHandling('doctype', 'required')  && !errorHandling('doctype', 'incorrect')">
+          <div class="col-md-12 px-0">
+            <app-file-uploader [fileMaxCount]="20" [fileExtensions]="['jpg', 'jpeg', 'png', 'pdf']" [fileMaxSize]="5"
+              [enableCropper]="false" (afterDocUpload)="afterDocUpload($event)"
+              (afterDocDelete)="afterDocDelete($event)" [activeDocType]="activeDocType"
+              [ngClass]="{ disabled: errorHandling('doctype', 'required') }"></app-file-uploader>
+            <!-- [hideDropArea]="activeDoc != null && selectedDocument !== null " -->
+          </div>
+          <mat-error *ngIf="errorHandling('data', 'required')" class="text-center my-2">
+            Please upload your docoument.
+          </mat-error>
+          <mat-error *ngIf="errorHandling('data', 'required')" class="text-center my-2">
+            Please upload your docoument.
+          </mat-error>
+        </div>
+      </div>
+
+
+
+      <div class="form-body" [hidden]="activeDoc == null && selectedDocument == null ">
+        <div class="col-12">
+          <div class="row g-3 p-3">
+            <div class="col-md-6">
+              <mat-form-field appearance="outline">
+                <mat-label>Document Number</mat-label>
+                <input autocomplete="off" matInput placeholder="Document Number" formControlName="docnumber" />
+                <mat-error *ngIf="errorHandling('docnumber', 'required')">
+                  You must provide a<strong> Document Number </strong>
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="col-md-6">
+              <mat-form-field appearance="outline">
+                <mat-label>Collection Status</mat-label>
+                <mat-select disableOptionCentering panelClass="mt-6" #onhandGrpSelect formControlName="dochand"
+                  required>
+                  <mat-option>None</mat-option>
+                  <mat-option *ngFor="let item of dochand" [value]="item.code">
+                    {{ item.name }}
+                  </mat-option>
+                </mat-select>
+
+                <mat-error *ngIf="errorHandling('dochand', 'required')">
+                  You must provide a<strong> Collection Status</strong>
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="col-md-6">
+              <mat-form-field appearance="outline">
+                <mat-label> Document Issue Date</mat-label>
+                <input formControlName="issuedate" matInput [matDatepicker]="issueDatePicker"
+                  (click)="issueDatePicker.open()" [max]="yesterday" autocomplete="off" readonly />
+                <mat-datepicker-toggle matSuffix [for]="issueDatePicker">
+                </mat-datepicker-toggle>
+                <mat-datepicker #issueDatePicker> </mat-datepicker>
+                <mat-error *ngIf="errorHandling('issuedate', 'required')">
+                  You must provide a<strong> Document Issue Date </strong>
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="col-md-6">
+              <mat-form-field appearance="outline">
+                <mat-label> Document Expiry Date</mat-label>
+                <input formControlName="expirydate" matInput (click)="expiryDatePicker.open()"
+                  [matDatepicker]="expiryDatePicker" autocomplete="off" readonly [min]="minExpirtData" />
+                <mat-datepicker-toggle matSuffix [for]="expiryDatePicker">
+                </mat-datepicker-toggle>
+                <mat-datepicker #expiryDatePicker> </mat-datepicker>
+                <mat-error *ngIf="errorHandling('expirydate', 'required')">
+                  You must provide a<strong> Document Expiry Date </strong>
+                </mat-error>
+                <mat-error *ngIf="errorHandling('expirydate', 'rangeMissMatch')">
+                  Expiry Date should be greater than Issue Date
+                </mat-error>
+
+
+
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer btn-group px-0 pt-4">
+        <button class="btn btn-primary" [disabled]="errorHandling('data', 'required')">Add</button>
+      </div>
+    </form>
+  </div>
+</ng-template>
+
+<ng-template #documentAddedTemplate>
+  <div class="modal-header widgets widget-tag modal-tag secondary-tag tagLeft" data-tag="Add Files">
+    <h4 *ngIf="docType == 'certificate'" class="modal-title pull-left">ADD CERTIFICATION</h4>
+    <h4 *ngIf="docType !== 'certificate'" class="modal-title pull-left">ADD DOCUMENTATION</h4>
+
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="closeSuccessModel();">
+      <span aria-hidden="true" class="visually-hidden"><img src="shared-assets/images/icon-close.svg" alt="" /></span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="row align-items-center justify-content-center">
+      <div class="col-md-12">
+        <div class="success-message">
+          <div class="success-icon">
+            <i class="fal fa-check"></i>
+          </div>
+          <h5>ADDED SUCCESSFULLY</h5>
+          <!-- <small>Type Of Document</small> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer btn-group">
+    <button class="btn btn-primary" (click)="addMore(docType)">ADD MORE</button>
+    <button class="btn btn-tertiary btn-light" (click)="closeSuccessModel()">CLOSE</button>
+  </div>
+</ng-template>

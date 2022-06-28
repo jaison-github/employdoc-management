@@ -1,0 +1,16 @@
+<div *ngIf="fileList?.length > 0">
+    <ng-container   *ngFor="let file of fileList">
+        <div class="file-preview-wrapper ng-star-inserted">
+            <div class="file-preview-thumbnail">
+                <mat-icon class="other-preview-thumbnail" [svgIcon]="file.fileName | getFileTypeIcon">  </mat-icon>
+            </div>
+            <div class="file-preview-description"><a href="javascript:void(0)" class="file-preview-title" title="{{file.fileName}">
+                    <p>{{file.fileName}}</p>
+                </a>
+            </div>
+            <div class="file-preview-actions" (click)="removeFile(file)">
+            </div>
+        </div>
+    </ng-container>
+</div>
+

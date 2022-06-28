@@ -1,0 +1,241 @@
+$font-family-light: "ADPortsGroup-Light", "Droid-Arabic-Kufi", sans-serif;
+$font-family-normal: "ADPortsGroup-Regular", "Droid-Arabic-Kufi", sans-serif;
+$font-family-bold: "ADPortsGroup-Bold", "Droid-Arabic-Kufi", sans-serif;
+$font-family-fontawesome: "Font Awesome 5 Pro";
+
+$font-weight-lighter: lighter !default;
+$font-weight-light: 300 !default;
+$font-weight-normal: 400 !default;
+$font-weight-bold: 700 !default;
+$font-weight-bolder: bolder !default;
+
+$font-weight-base: $font-weight-normal !default;
+
+$font-size-base: 1rem;
+$font-size-sm: 1rem;
+$font-size-lg: 1rem;
+
+$h1-font-size: 2.4rem;
+$h2-font-size: 2rem;
+$h3-font-size: 2rem;
+$h4-font-size: 1.8rem;
+$h5-font-size: 1.8rem;
+$h6-font-size: 1.6rem;
+
+$heading1-font-size: 22px;
+$heading2-font-size: 18px;
+$font-size-label: 14px;
+
+$line-height-base: 1.5 !default;
+
+$headings-margin-bottom: 0.8rem !default;
+
+$primary-color: #315084;
+$secondary-color: #22b7bd;
+$tertiary-color: #343336;
+$body-color: #222222;
+$light: #c2c2c2;
+
+$primary-light: #cec3dd;
+$bg-light: #f2f2f2;
+
+$danger-color: #ff0000;
+$warning-color: #c5af13;
+$success-color: #75b15f;
+
+$white: #ffffff;
+$black: #000000;
+$gray: #eaeaea;
+
+// TODO: Rename below colors
+$color-1: #f3f3f2;
+$color-2: #f1f1f1;
+$color-3: #fcfcfc;
+$color-4: #ecfffe;
+$color-5: #63d9d3;
+$color-6: #707070;
+$color-7: #f2fdfc;
+$color-8: #f6f6f6;
+$color-9: #d3d3d3;
+$color-10: #edffef;
+
+$color-11: #999999;
+$color-12: #666666;
+$color-13: #b9bfd6;
+$color-14: #c6c6c6;
+$color-15: #7e84a3;
+$color-16: #f39d74;
+$color-17: #080521;
+$color-18: #d9d9d6;
+$color-19: #808080;
+$color-20: #656565;
+
+$color-21: #5e6c8c;
+$color-22: #8794b4;
+$color-23: #d9d9d9;
+$color-24: #888888;
+$color-25: #f8f8f8;
+$color-26: #c5d2e7;
+$color-27: #cecece;
+$color-28: #e4e4e4;
+$color-29: #fff2ec;
+$color-30: #afafaf;
+
+$color-31: #fafafa;
+$color-32: #a9a9a9;
+$color-33: #848484;
+$color-34: #dfdfdf;
+$color-35: #e9e9e9;
+$color-36: #dcdcdc;
+$color-37: #777777;
+$color-38: #9b9b9b;
+$color-39: #e6e6e6;
+
+$border-width: 1px !default;
+$border-radius: 0.4rem;
+$border-radius-sm: $border-radius;
+$border-radius-lg: $border-radius;
+$border-radius-card-header: 1rem;
+
+// Form Input Select Label  Variables
+$input-border-color: #70707038;
+$input-btn-border-width: $border-width !default;
+
+$input-btn-padding-y: 0.6rem !default;
+$input-btn-padding-x: 1.2rem !default;
+$input-btn-font-family: null !default;
+$input-btn-font-size: $font-size-base !default;
+$input-btn-line-height: $line-height-base !default;
+
+$input-btn-padding-y-sm: 0.4rem !default;
+$input-btn-padding-x-sm: 0.8rem !default;
+$input-btn-font-size-sm: $font-size-sm !default;
+
+$input-btn-padding-y-lg: 0.8rem !default;
+$input-btn-padding-x-lg: 1.6rem !default;
+$input-btn-font-size-lg: $font-size-lg !default;
+
+$input-btn-focus-box-shadow: none;
+$input-focus-border-color: rgba($input-border-color, 50%) !default;
+
+$input-padding-y: $input-btn-padding-y;
+$input-padding-x: $input-btn-padding-x;
+$input-font-family: $input-btn-font-family;
+$input-font-size: $input-btn-font-size;
+$input-font-weight: $font-weight-base;
+
+$input-padding-y-sm: $input-btn-padding-y-sm;
+$input-padding-x-sm: $input-btn-padding-x-sm;
+$input-font-size-sm: $input-btn-font-size-sm;
+
+$input-padding-y-lg: $input-btn-padding-y-lg;
+$input-padding-x-lg: $input-btn-padding-x-lg;
+$input-font-size-lg: $input-btn-font-size-lg;
+
+$input-group-addon-bg: transparent;
+$input-group-addon-border-color: $input-border-color;
+
+$form-select-focus-border-color: $input-focus-border-color;
+$form-select-focus-box-shadow: none;
+
+$form-label-font-size: 1.4rem;
+$form-label-color: #606a81;
+
+$form-check-input-checked-bg-color: $secondary-color;
+$form-check-input-checked-border-color: $secondary-color;
+
+// Button Variables
+$btn-box-shadow: none;
+$btn-focus-box-shadow: none;
+$btn-active-box-shadow: none;
+$btn-padding-y: 0.6rem;
+$btn-padding-x: 0.8rem;
+$btn-font-family: $input-btn-font-family;
+$btn-font-size: $input-btn-font-size;
+
+$btn-padding-y-sm: $input-btn-padding-y-sm;
+$btn-padding-x-sm: $input-btn-padding-x-sm;
+$btn-font-size-sm: $input-btn-font-size-sm;
+
+$btn-padding-y-lg: $input-btn-padding-y-lg;
+$btn-padding-x-lg: $input-btn-padding-x-lg;
+$btn-font-size-lg: $input-btn-font-size-lg;
+
+$btn-border-width: $input-btn-border-width;
+
+$btn-font-weight: $font-weight-bold;
+
+$btn-border-radius: $border-radius;
+$btn-border-radius-sm: $border-radius-sm;
+$btn-border-radius-lg: $border-radius-lg;
+
+$switch-btn-bg: #848484;
+
+// Media Query Breakpoints
+$xs: 0; // Extra Small
+$sm: 576px; // Small
+$md: 768px; // Medium
+$lg: 992px; // Large
+$xl: 1200px; // Extra large
+$xxl: 1400px; // Extra extra large
+
+$extra-small: "(min-width: #{$xs})";
+$small: "(min-width: #{$sm})";
+$medium: "(min-width: #{$md})";
+$large: "(min-width: #{$lg})";
+$extra-large: "(min-width: #{$xl})";
+
+// Nav Tab Variables
+$nav-tabs-item-active-bg: #ffffff;
+$nav-tabs-link-active-color: $secondary-color;
+$nav-tabs-link-active-bg: transparent;
+
+$nav-link-color: $primary-color;
+
+$link-color: $secondary-color;
+$link-hover-color: $secondary-color;
+$link-decoration: none;
+
+// Card Variables
+$card-spacer-y: 3.6rem;
+$card-spacer-x: 3.6rem;
+$card-border-radius: $border-radius;
+$card-border-width: 1px;
+$card-border-color: transparent;
+$card-cap-bg: $white;
+$card-box-shadow: 0px 2px 4px rgba($black, 0.08);
+$card-cap-padding-y: $card-spacer-y;
+$card-cap-padding-x: $card-spacer-x;
+
+$widget-box-shadow: 0px 2px 8px rgba($black, 0.06);
+
+$badge-font-weight: $font-weight-lighter;
+
+// Table Variables
+$table-border-color: #e2e4ee; //rgba($color-13, 0.42);
+$table-cell-padding-y: 0.8rem;
+$table-cell-padding-x: 0.8rem;
+$table-color: #222;
+
+$table-striped-color: $primary-color;
+$table-striped-bg: $color-25;
+
+// Modal Variables
+$modal-inner-padding: 3.6rem;
+$modal-header-padding-y: 2.4rem;
+$modal-header-padding-x: $modal-inner-padding;
+$modal-header-padding: $modal-header-padding-y $modal-header-padding-x; // Keep this
+$modal-header-border-color: transparent;
+
+$modal-show-transform: translate(0, 70px);
+
+
+:root {
+  --bs-primary-rgb: 45, 57, 85;
+  --bs-secondary-rgb: 19, 197, 189;
+  --bs-success-rgb: 88, 239, 38;
+  --bs-info-rgb: 217, 217, 217;
+  --bs-warning-rgb: 253, 207, 39;
+  --bs-danger-rgb: 237, 35, 35;
+}
+

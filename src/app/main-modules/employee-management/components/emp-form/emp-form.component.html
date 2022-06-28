@@ -1,0 +1,293 @@
+<div class="container-fluid container--xl container--xxl main-page-wrap bg-trans-white  my-5  relative">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="row bg-theme-gradient page-highlight-header">
+      <div class="col-6">
+        <h3>Employee Profile - Add New</h3>
+      </div>
+      <div class="col-6 row p-0 justify-content-end">
+        <div class="col-md-2 p-0 d-flex justify-content-end">
+          <button class="text-white" mat-raised-button color="accent">Save</button>
+        </div>
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="card bg-none">
+        <div class="card-body p-4 bg-none  ">
+          <div class="row">
+            <div class="col-auto mt-5 me-5">
+              <app-avatar-upload [fileMaxCount]='20' [fileExtensions]="['jpg', 'jpeg', 'png']" [fileMaxSize]='5'
+                [enableCropper]='false' [imgUrl]="avatarUrl" (afterUploadSuccess)="afterAvatarUpload($event);">
+              </app-avatar-upload>
+
+            </div>
+            <div class="col row">
+              <div class="col-md-6">
+                <div class="row">
+                  <div>
+                    <h3 class="half-underline">Basic Information</h3>
+                  </div>
+
+                  <div class="col-md-12">
+                    <mat-form-field    class="cardtype" appearance="outline">
+                      <mat-label>Employee Name</mat-label>
+                      <input formControlName="empname" matInput placeholder="Placeholder">
+                    </mat-form-field>
+
+                    <mat-error *ngIf="errorHandling('empname', 'required')">
+                      You must provide an<strong> Employee Name </strong>
+                    </mat-error>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <mat-form-field  class="cardtype" appearance="outline">
+                          <mat-label>Employee Code</mat-label>
+                          <input formControlName="empcode" matInput placeholder="Placeholder">
+                        </mat-form-field>
+
+                        <mat-error *ngIf="errorHandling('empcode', 'required')">
+                          You must provide an<strong> Employee Code </strong>
+                        </mat-error>
+                      </div>
+
+
+
+                      <div class="col-md-12">
+                        <mat-form-field  class="cardtype" appearance="outline">
+                          <mat-label>Date Of Birth</mat-label>
+                          <input (click)="dobDatePicker.open()" formControlName="dob" matInput [matDatepicker]="dobDatePicker" [max]="yesterday"
+                            autocomplete="off" readonly />
+                          <mat-datepicker-toggle matSuffix [for]="dobDatePicker">
+                          </mat-datepicker-toggle>
+                          <mat-datepicker #dobDatePicker> </mat-datepicker>
+                        </mat-form-field>
+
+                        <mat-error *ngIf="errorHandling('dob', 'required')">
+                          You must provide <strong>Date of birth </strong>
+                        </mat-error>
+
+                      </div>
+                      <div class="col-md-12">
+                        <mat-form-field  class="cardtype" appearance="outline" *ngIf="masterData?.vpmasterList && masterData?.vpmasterList?.length > 0">
+                          <mat-label>VP Number</mat-label>
+                          <input type="text" placeholder="Enter VP Number" aria-label="applnumber" matInput
+                            formControlName="applnumber" [matAutocomplete]="vpAC">
+                            <mat-icon matSuffix>keyboard_arrow_down</mat-icon>
+
+                          <mat-autocomplete [displayWith]="displayVpListFn.bind(this)" #vpAC="matAutocomplete">
+                            <mat-option *ngFor="let option of vpList" [value]="option.code">
+                              {{option.name}}
+                            </mat-option>
+                          </mat-autocomplete>
+                        </mat-form-field>
+                        <mat-error *ngIf="errorHandling('applnumber', 'required')">
+                          You must provide <strong>VP Number </strong>
+                        </mat-error>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <mat-form-field  class="cardtype" appearance="outline">
+                          <mat-label>Gender</mat-label>
+                          <mat-select formControlName="gender" disableOptionCentering>
+                            <mat-option selected value="">Select Gender</mat-option>
+                            <mat-option [value]="gender.code" *ngFor="let gender of masterData?.genderList">
+                              {{gender.name}}</mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                        <mat-error *ngIf="errorHandling('gender', 'required')">
+                          You must provide <strong>Gender </strong>
+                        </mat-error>
+                      </div>
+
+                      <div class="col-md-12">
+                        <mat-form-field  class="cardtype" appearance="outline" >
+                          <mat-label>Nationality</mat-label>
+                          <input type="text" placeholder="Enter Natioality" aria-label="natioality" matInput
+                            formControlName="nationality" [matAutocomplete]="natioalityAC">
+                            <mat-icon matSuffix>keyboard_arrow_down</mat-icon>
+
+                          <mat-autocomplete [displayWith]="displayNationListFn.bind(this)"
+                            #natioalityAC="matAutocomplete">
+                            <mat-option *ngFor="let option of nationList" [value]="option.code">
+                              {{option.name}}
+                            </mat-option>
+                          </mat-autocomplete>
+                        </mat-form-field>
+                        <mat-error *ngIf="errorHandling('nationality', 'required')">
+                          You must provide <strong>Department</strong>
+                        </mat-error>
+                      </div>
+
+                      <div class="col-md-12">
+                        <mat-form-field  class="cardtype" appearance="outline" >
+                          <mat-label>Company Name</mat-label>
+                          <input type="text" placeholder="Enter Company" aria-label="company" matInput
+                            formControlName="cmpnycode" [matAutocomplete]="cmpAC">
+                            <mat-icon matSuffix>keyboard_arrow_down</mat-icon>
+
+                          <mat-autocomplete [displayWith]="displayCompListFn.bind(this)" #cmpAC="matAutocomplete">
+                            <mat-option *ngFor="let option of companyList" [value]="option.code">
+                              {{option.name}}
+                            </mat-option>
+                          </mat-autocomplete>
+                        </mat-form-field>
+
+
+                        <mat-error *ngIf="errorHandling('cmpnycode', 'required')">
+                          You must provide <strong>Company Code </strong>
+                        </mat-error>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="row">
+                  <div>
+                    <h3 class="half-underline">Employeement Informations</h3>
+                  </div>
+                  <div class="col-md-12">
+                    <mat-form-field  class="cardtype" appearance="outline" *ngIf="masterData?.departmentList && masterData?.departmentList?.length > 0">
+                      <mat-label>Department</mat-label>
+                      <input type="text" placeholder="Enter Department" aria-label="department" matInput
+                        formControlName="department" [matAutocomplete]="departmentAC">
+                        <mat-icon matSuffix>keyboard_arrow_down</mat-icon>
+
+                      <mat-autocomplete [displayWith]="displayDptmntListFn.bind(this)" #departmentAC="matAutocomplete">
+                        <mat-option *ngFor="let option of departmentList" [value]="option.code">
+                          {{option.name}}
+                        </mat-option>
+                      </mat-autocomplete>
+                    </mat-form-field>
+                    <mat-error *ngIf="errorHandling('department', 'required')">
+                      You must provide <strong>Department</strong>
+                    </mat-error>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <mat-form-field  class="cardtype" appearance="outline" *ngIf="masterData?.professionList && masterData?.professionList?.length > 0">
+                          <mat-label>Profession</mat-label>
+                          <input type="text" placeholder="Enter profession" aria-label="profession" matInput
+                            formControlName="jobtitle" [matAutocomplete]="profAC">
+                            <mat-icon matSuffix>keyboard_arrow_down</mat-icon>
+
+                          <mat-autocomplete [displayWith]="displayProListFn.bind(this)" #profAC="matAutocomplete">
+                            <mat-option *ngFor="let option of professionList" [value]="option.code">
+                              {{option.name}}
+                            </mat-option>
+                          </mat-autocomplete>
+                        </mat-form-field>
+                        <mat-error *ngIf="errorHandling('jobtitle', 'required')">
+                          You must provide <strong> Profession</strong>
+                        </mat-error>
+                      </div>
+           
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="row">
+                      <div class="col-md-12">                       
+                        <mat-form-field  class="cardtype" appearance="outline">
+                          <mat-label>Joining Date</mat-label>
+                          <input formControlName="joindate" (click)="joindateDatePicker.open()"   matInput [matDatepicker]="joindateDatePicker"
+                            autocomplete="off" readonly />
+                          <mat-datepicker-toggle matSuffix [for]="joindateDatePicker">
+                          </mat-datepicker-toggle>
+                          <mat-datepicker #joindateDatePicker> </mat-datepicker>
+                        </mat-form-field>
+                        <mat-error *ngIf="errorHandling('joindate', 'required')">
+                          You must provide <strong>Joining Date </strong>
+                        </mat-error>
+                      </div>                
+                 
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">                      
+                  <div class="col-md-4">
+                    <mat-form-field  class="cardtype" appearance="outline">
+                      <mat-label>Basic Salary</mat-label>
+                      <input [value]="f.basic.value | number: '1.2-2'"  class="text-right"        (keypress)="numberOnly($event)"
+                      formControlName="basic" matInput placeholder="Placeholder">
+                    </mat-form-field>
+                    <mat-error *ngIf="errorHandling('basic', 'required')">
+                      You must provide <strong>Basic Salary </strong>
+                    </mat-error>
+                  </div>
+
+                  <div class="col-md-4">
+                    <mat-form-field  class="cardtype" appearance="outline">
+                      <mat-label>HR Allowance</mat-label>
+                      <input   [value]="f.hra.value | number: '1.2-2'"
+                      class="text-right"     (keypress)="numberOnly($event)" formControlName="hra" matInput placeholder="Placeholder">
+                    </mat-form-field>
+                    <mat-error *ngIf="errorHandling('hra', 'required')">
+                      You must provide <strong>HR Allowance </strong>
+                    </mat-error>
+                  </div>
+                  <div class="col-md-4">
+                    <mat-form-field  class="cardtype" appearance="outline">
+                      <mat-label>Other Allowance</mat-label>
+                      <input [value]="f.others.value | number: '1.2-2'" class="text-right"       (keypress)="numberOnly($event)" formControlName="others" matInput placeholder="Placeholder">
+                    </mat-form-field>
+                    <mat-error *ngIf="errorHandling('others', 'required')">
+                      You must provide <strong> Other Information </strong>
+                    </mat-error>
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <mat-form-field  class="cardtype" appearance="outline" style="font-size: 16px;">
+                    <mat-label>Net Salary</mat-label>
+                    <input class="fw-bold  text-right text-secondary" [value]="f.netsalary.value | number: '1.2-2'" class="text-right" readonly formControlName="netsalary" matInput placeholder="Placeholder">
+                  </mat-form-field>
+
+                  <!-- <mat-error *ngIf="errorHandling('netsalary', 'required')">
+                    You must provide <strong> Net Salary </strong>
+                  </mat-error> -->
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
+
+
+
+
+
+        </div>
+      </div>
+
+    </div>
+    <div class="row m-0">
+      <app-add-documents #certificateAdd [userId]="'Id'"  [groupId]="activeGroupId" [documentList]='uploadedDocumentList' [docTypeList]="docList"
+        [docType]="'document'" (docUploadSuccess)="afterDocUploadSuccess($event);" (onDocUpload)="getGroupidOnDocUpload($event);" (onDocDelete)="deleteFile($event);"
+        (docDeleteSuccess)="afterDocDelete($event);"></app-add-documents>
+    </div>
+
+  </form>
+
+
+
+
+  <!-- 
+  <p>
+    <mat-form-field  appearance="outline">
+      <mat-label>Outline form field</mat-label>
+      <input matInput placeholder="Placeholder">
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-hint>Hint</mat-hint>
+    </mat-form-field>
+  </p> -->
+
+</div>

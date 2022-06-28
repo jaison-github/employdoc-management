@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="15.874" height="15.873" viewBox="0 0 15.874 15.873">
+  <defs>
+    <clipPath id="clip-path">
+      <path id="Path_26204" data-name="Path 26204" d="M0,0H15.874V15.873H0Z" transform="translate(1329.583 284.58)" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Mask_Group_27" data-name="Mask Group 27" transform="translate(-1329.583 -284.58)" clip-path="url(#clip-path)">
+    <path id="Path_26203" data-name="Path 26203" d="M20.351,8.848H12.388V.885A.885.885,0,0,0,11.5,0H9.733a.885.885,0,0,0-.885.885V8.848H.885A.885.885,0,0,0,0,9.733V11.5a.885.885,0,0,0,.885.885H8.848v7.964a.885.885,0,0,0,.885.885H11.5a.885.885,0,0,0,.885-.885V12.388h7.964a.885.885,0,0,0,.885-.885V9.733A.885.885,0,0,0,20.351,8.848Z" transform="translate(1322.5 292.507) rotate(-45)" fill="#2d3955" stroke="#fff" stroke-width="1"/>
+  </g>
+</svg>

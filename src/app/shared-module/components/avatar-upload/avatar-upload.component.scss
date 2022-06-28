@@ -1,0 +1,25 @@
+::ng-deep{.avatar-uploader{
+    ngx-awesome-uploader{
+        overflow: visible !important;
+        max-width: 100%;
+        .file-drop-wrapper{
+            padding:0 !important;
+            border: none !important;
+            background: none !important;
+            #dropZone{
+                max-width: 100%;
+                margin:auto auto 2rem;
+                border:none !important;
+                border-radius: 0;
+                padding:0 !important;
+                background: none;
+
+            }
+        }
+    }
+
+    .files-preview-wrapper{
+        display: none !important;
+    }
+}
+}

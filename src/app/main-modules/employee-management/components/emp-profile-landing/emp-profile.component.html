@@ -1,0 +1,71 @@
+<div class="container-fluid container--xl container--xxl main-page-wrap bg-trans-white  my-5  relative">
+    <div class="row bg-theme-gradient page-highlight-header">
+        <div class="col-6">
+            <h3>Employee Profile</h3>
+        </div>
+        <div class="col-6 row justify-content-end p-0">
+            <div class="col-md-2 d-flex justify-content-end p-0">
+
+                <button class="text-white" mat-raised-button color="accent" (click)="goToEmpDetails(null);">Create New</button>
+            </div>
+        </div>
+
+    </div>
+
+
+ <app-emplist-tabelview></app-emplist-tabelview>
+
+
+
+    <!-- <div class="row">
+        <div *ngFor="let candidate of employeeList" class="col-lg-4 col-md-6 col-sm-12 p-3">
+            <div class="card card-x withRadius">
+                <div (click)="detailView(candidate.Id)" class="card-header primary-header">
+                    {{ candidate.OnBoardedByDisplayText}}
+                </div>
+                <div class="card-body p-2">
+                    <main class="row m-0 p-0 col-12" (click)="detailView(candidate.Id)"
+                        [routerLink]="['/admin/candidate', candidate.Id]">
+                        <div class="avatar-block">
+                            <div class="user-avatar table-avatar" *ngIf="candidate?.ProfilePicUrl"><img
+                                    src="{{ candidate?.ProfilePicUrl }}" /></div>
+                            <div class="user-avatar table-avatar" *ngIf="!candidate?.ProfilePicUrl"><img
+                                    src="assets/img/avatar.png" />
+                            </div>
+                            <div>
+                                <div class="username-block mt-2">
+                                    <small class="text-secondary">ID # {{ candidate?.UserUniqueId }}</small>
+                                    <h6 class="text-primary mb-0">
+                                        {{ candidate?.FirstName +" "+ candidate?.LastName }}
+                                    </h6>
+                                    <p class="text-primary">{{ candidate.DesignationName }}</p>
+                                    <small class="mt-2 mb-0">Last Booked on : {{ candidate?.LastBookedDate | CustomDate
+                                        : "No Bookings"
+                                        }}</small>
+                                </div>
+                            </div>
+
+                        </div>
+                    </main>
+                </div>
+                <div class="card-footer">
+                    <div class="contact-block">
+                        <a *ngIf="candidate.Mobile" href="tel:{{ '+'+ candidate.Mobile }}" class="btn btn-icon"
+                            title="{{ '+'+ candidate.Mobile }}">
+                            <img src="assets/img/icon-phone.svg" alt="" />
+                        </a>
+                        <a *ngIf="!candidate.Mobile" [routerLink]="" class="btn btn-icon">
+                            <img src="assets/img/icon-phone.svg" alt="" />
+                        </a>
+                        <a href="mailto:{{ candidate.Email }}" class="btn btn-icon" title="{{  candidate.Email }}">
+                            <img src="assets/img/icon-email.svg" alt="" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div> -->
+</div>

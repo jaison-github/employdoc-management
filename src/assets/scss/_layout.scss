@@ -1,0 +1,166 @@
+
+main {
+  position: relative;
+}
+
+.app-body{
+  overflow: auto;
+  position: relative;
+  width:100%;
+}
+
+
+
+
+
+
+.mask {
+  background: transparent
+    linear-gradient(90deg, rgba($primary-color, 0) 0%, $primary-color 100%) 0%
+    0% no-repeat padding-box;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.pattern {
+  background-image: url("../images/pattern.png");
+  background-position: 100% 100%;
+  background-repeat: no-repeat;
+  background-size: 25%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tab-wrapper {
+  display: flex;
+  background: $white;
+  width: 100%;
+  max-width: 73rem;
+  min-height: 39rem;
+  box-shadow: 0px 20px 20px rgba($black, 0.16);
+}
+
+.button-wrap {
+  border-left: 5px solid $primary-color;
+  height: 100%;
+  padding: 4rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.admin-login {
+  text-transform: uppercase;
+}
+
+.test-wrap {
+  width: 500px;
+  height: 500px;
+  background-color: red;
+}
+
+.page-float-btn-wrap {
+  position: sticky;
+  height: auto;
+  width: 75px;
+  left: 100%;
+  bottom: 80%;
+  display: flex;
+  flex-direction: column;
+  @media screen and (max-width: 1360px) {
+    width: 36px;
+  }
+  > button {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background-color: #aaa;
+    border: none;
+    margin-bottom: 0.6rem;
+
+    &.switchViewBtn {
+      min-height: 95px;
+      position: relative;
+      padding: 2rem 0;
+      min-width: 100%;
+      background-color: $switch-btn-bg;
+      color: #fff;
+
+      label {
+        transform: translate(-70%, -50%) rotate(-90deg);
+        transform-origin: center;
+        font-size: small;
+        white-space: nowrap;
+        @media screen and (max-width: 1360px) {
+          transform: translate(-49%, -50%) rotate(-90deg);
+        }
+      }
+    }
+
+    .sort {
+      height: 15px;
+      width: 15px;
+      display: flex;
+      padding: 1.2rem 2.2rem;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-image: url("../images/icon-sort.svg");
+      &.sort-asc {
+        background-image: url("../images/icon-sort-ascending.svg");
+      }
+      &.sort-des {
+        background-image: url("../images/icon-sort-descending.svg");
+      }
+      @media screen and (max-width: 1360px) {
+        padding: 1.2rem 1.2rem;
+      }
+    }
+  }
+}
+.iti {
+  width: 100%;
+}
+.selected-dial-code {
+  color: #222222;
+  font-size: 1.4rem;
+}
+.empty-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 96px;
+  background: $color-31;
+  border: 1px solid $color-26;
+  border-radius: $border-radius;
+  p {
+    margin: 0;
+  }
+  a {
+    color: $color-32;
+  }
+}
+
+.success-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+}
+
+.success-icon {
+  height: 110px;
+  width: 110px;
+  background: #f5f5f5;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $secondary-color;
+  font-size: 4.4rem;
+}
+
+

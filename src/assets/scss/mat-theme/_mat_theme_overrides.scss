@@ -1,0 +1,306 @@
+@use "/node_modules/@angular/material" as mat;
+@import "../variables";
+
+html {
+  body {
+
+    .mat-form-field {
+
+      .mat-input, input.mat-input-element{
+        color:$primary-color;
+      }
+      
+      font-size: 0.9rem;
+      &.mat-focused {
+        .mat-form-field-outline-thick {
+          color: #70707080 !important;
+        }
+      }
+    }
+
+    /*mat-form-field*/
+    .mat-form-field.mat-form-field-appearance-outline {
+      display: block;
+
+
+      &.mat-form-field-type-mat-select:not(.mat-form-field-should-float) {
+        
+        .mat-form-field-label-wrapper
+        .mat-form-field-label {
+        margin-top: -0.5em !important;
+      }
+      }
+
+
+
+
+
+
+
+
+      .mat-form-field-label {
+        > mat-label,
+        > .mat-form-field-required-marker {
+          background: #fff;
+        }
+      }
+      .mat-form-field-flex > .mat-form-field-infix {
+        padding: 0.25em 0px !important;
+        border-top: 0.6em solid transparent !important;
+    border-bottom: 0.2em solid transparent !important;
+      }
+
+      .mat-form-field-appearance-outline
+        .mat-form-field-label-wrapper
+        .mat-form-field-label {
+        margin-top: -15px !important;
+      }
+      .mat-form-field-wrapper {
+        padding-bottom: 0 !important;
+        .mat-form-field-subscript-wrapper {
+          padding: 0 !important;
+          margin: 0 !important;
+          position: relative !important;
+          > div.ng-trigger {
+            margin-top: 0.5rem;
+          }
+        }
+      }
+    }
+    .mat-form-field-appearance-outline
+      .mat-form-field-label-wrapper
+      .mat-form-field-label {
+      margin-top: -0.85em !important;
+    }
+
+   
+    .advanced-search {
+      .mat-form-field-appearance-outline
+      .mat-form-field-label-wrapper
+      .mat-form-field-label {
+      margin-top: -0.5em !important;
+    }
+
+    .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label, .mat-form-field-appearance-outline.mat-form-field-can-float .mat-input-server:focus + .mat-form-field-label-wrapper .mat-form-field-label{
+      margin-top: 0em !important;
+    }
+
+    input{
+      caret-color: currentColor !important;
+    }
+
+    }
+
+    .mat-form-field-empty.mat-form-field-label,
+    .mat-form-field-can-float.mat-form-field-should-float
+      .mat-form-field-label {
+      margin-top: -0.25em !important;
+    }
+
+    .mat-error {
+      font-size: 10px;
+    }
+
+    .mat-form-field-appearance-outline
+      .mat-form-field-outline-thick
+      .mat-form-field-outline-start,
+    .mat-form-field-appearance-outline
+      .mat-form-field-outline-thick
+      .mat-form-field-outline-end,
+    .mat-form-field-appearance-outline
+      .mat-form-field-outline-thick
+      .mat-form-field-outline-gap {
+      border-width: 1px !important;
+    }
+
+    .mat-form-field-appearance-outline .mat-form-field-outline-start {
+      border-radius: 0.3rem 0 0 0.3rem;
+    }
+
+    .mat-form-field-appearance-outline .mat-form-field-outline-end {
+      border-radius: 0 0.3rem 0.3rem 0;
+    }
+
+    .mat-form-field-appearance-outline .mat-form-field-outline {
+      color: $input-border-color;
+    }
+    .mat-header-cell {
+      font-size: 14px !important;
+      color: #333 !important;
+      min-width: 150px !important;
+    }
+
+    .mat-dialog-container {
+      margin-top: -300px !important;
+    }
+
+    .mat-table {
+      [aria-sort="ascending"],
+      [aria-sort="descending"],
+      [aria-sort="none"] {
+        .mat-sort-header-arrow {
+          opacity: 1 !important;
+          margin-left: 15px;
+          transform: translateY(-2px) !important;
+          .mat-sort-header-indicator {
+            transform: translateY(0px) !important;
+            > div {
+              display: none !important;
+            }
+            &::before {
+              font-family: "Font Awesome 5 Pro";
+              content: "\f078";
+              position: absolute;
+              top: 5px;
+            }
+
+            &::after {
+              font-family: "Font Awesome 5 Pro";
+              content: "\f077";
+              position: absolute;
+              top: -5px;
+            }
+          }
+        }
+      }
+
+      [aria-sort="descending"] {
+        .mat-sort-header-arrow {
+          .mat-sort-header-indicator {
+            &::after {
+              opacity: 0.5;
+            }
+          }
+        }
+      }
+
+      [aria-sort="ascending"] {
+        .mat-sort-header-arrow {
+          .mat-sort-header-indicator {
+            &::before {
+              opacity: 0.5;
+            }
+          }
+        }
+      }
+
+      [aria-sort="none"] {
+        .mat-sort-header-arrow {
+          .mat-sort-header-indicator {
+            &::before {
+              opacity: 0.5;
+            }
+
+            &::after {
+              opacity: 0.5;
+            }
+          }
+        }
+      }
+    }
+
+    .mat-slection-box {
+      display: inline-block;
+      position: relative;
+      vertical-align: middle;
+      cursor: pointer;
+      outline: 1px solid #d3d3d3;
+      outline-offset: -5px;
+      border-radius: 0.4rem;
+      padding: 1.2rem 1.2rem;
+      color: #080521;
+      font-weight: 700;
+      font-size: 1.4rem;
+      .mat-list-text{
+          line-height: 1;
+          font-size: small;
+      }
+  }
+
+  .group-mat-text-input{
+    background-color: transparent;
+    border: 1px solid $input-group-addon-border-color;
+    border-left: 0px;
+    border-radius: 0.4rem;
+    margin: 0 !important;
+    padding: 0 .75em 0 .75em;
+    position: relative;
+    flex: 1 1 auto;
+    width: 1%;
+    min-width: 0;
+
+
+
+
+  }
+file-drop{
+  padding: 0  !important
+}
+
+
+.mat-radio-group-highlight-wrap{
+  mat-radio-group{
+  font-size: 1.8rem;
+  color: $primary-color;
+  mat-radio-button{
+    margin-right: 16px;
+  }
+  .mat-radio-container{
+    margin-top: -5px;
+  }
+}
+
+}
+
+
+  }
+}
+
+.mat-paginator {
+  .mat-form-field-underline {
+    display: none !important;
+  }
+  .mat-paginator-page-size-select {
+    margin-top: 0 !important;
+  }
+  .mat-paginator-container {
+    color: $primary-color;
+  }
+}
+
+
+.mat-checkbox{
+  .mat-checkbox-inner-container{
+    margin-top: 0 !important;
+  }
+}
+
+.mat-form-field.cardtype >{
+.mat-form-field-wrapper {
+  padding: 1rem 1rem 0;
+  background: #ffffff7a;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px #dddd;
+}
+}
+
+
+::ng-deep {
+  .mat-form-field-appearance-outline
+    .mat-form-field-label-wrapper
+    .mat-form-field-label {
+    margin-top: -15px !important;
+  }
+
+  .mat-dialog-container {
+    margin-top: -300px !important;
+  }
+
+  file-drop{
+    padding: 0 I !important
+}
+
+
+
+
+}

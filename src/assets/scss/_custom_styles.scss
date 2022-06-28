@@ -1,0 +1,245 @@
+
+
+.mat-sort-header-container {
+  justify-content: flex-start!important;
+}
+
+#loginPage .login-wrap{
+  margin-bottom: 25rem!important;
+}
+
+.tc-checkbox {
+    width: 24px;
+    height: 24px;
+}
+
+.sk-chasing-dots{
+    color: $secondary-color;
+}
+
+.pagination-table-size-select{
+    border: thick;
+}
+
+.pagination-dix-secondary-styles{
+   
+    width: fit-content;
+
+}
+
+.pagination-dix-primary-styles{
+    flex-direction: row-reverse;
+    margin-top: 15px;
+    border-color: white;
+    background: white;
+    border-radius: 15px;
+    border-style: solid;
+}
+
+  .pagination .select-round {
+    background: transparent;
+    font-size: 13px;
+  }
+
+  .modal{
+    z-index: 999 !important;
+  }
+  .modal-backdrop{
+    z-index: 990 !important;
+  }
+  .cursor-pointer{
+    cursor:pointer !important;
+  }
+
+  .gap-10{
+    column-gap: 10px !important;
+  }
+  
+  .gap-5{
+    column-gap: 5px !important;
+  }
+
+  .fit-height{
+    min-height:100% !important;
+    height: 100% !important;
+  }
+
+  .height-100{
+    height: 100%  !important;
+  }
+
+  
+  .more-details{
+    background: #e1e8f4 !important;
+    border: 1px solid #eee !important;
+}
+
+.css-tooltip{
+  position: relative;
+  &:hover{
+    opacity: 1 !important;
+    &:after{
+      opacity: 1 !important;
+    }
+  }
+  &:after{
+    content:attr(data-tip);
+    opacity: 0 !important;
+    transition: all ease-in 0.2s;
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 200px;
+    font-size: 10px;
+    background: #555;
+    color: #fff;
+    padding: 4px;
+    border-radius: 0.4rem;
+    white-space: nowrap;
+    margin-top: -26px;
+    opacity: 1;
+    line-height: 150%;
+  }
+  &.align-right{
+    &:after{
+     right:0;
+     left:auto;
+      }
+  }
+  &.align-bottom{
+    &:after{
+     top:auto;
+     bottom:-20px;
+      }
+  }
+  &.tip-mxl{
+    &:after{
+    margin-top: -40px;
+    }
+  }
+  &.tip-ml{
+    &:after{
+    margin-top: -36px;
+    }
+  }
+
+  &.tip-ms{
+    &:after{
+    margin-top: -30px;
+    }
+  }
+
+  &.tip-wrap{
+    &:after{
+      max-width: 200px;
+      min-width: auto;
+      white-space: normal !important;
+    }
+  }
+  &.tip-fontNormal{
+    &:after{
+      font-size: 12px;
+    }
+  }
+}
+.notAllowed{
+  cursor: not-allowed !important;
+  opacity: 0.8;
+border-color: #ddd;
+}
+
+.fake-click-ele{
+  width: 100%;
+  height: 25px;
+  position: absolute;
+  z-index: 9;
+}
+
+textarea{
+  border: 1px solid #dbe3f2; 
+  border-radius: 0.4rem;
+  position: relative;
+}
+
+.btn-grey{
+  background: #9B9B9B 0% 0% no-repeat padding-box;
+border-radius: 8px;
+opacity: 1;
+color: #fff;
+}
+.no-cursor{
+  cursor: none !important;
+}
+.inheritSize{
+  height:100%;
+  width:100%;
+}
+.content-wrapper-before {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  -webkit-transition: .3s ease all;
+  -moz-transition: .3s ease all;
+  -o-transition: .3s ease all;
+  transition: .3s ease all;
+}
+.bg-default-gradient{
+  // background-image: -webkit-gradient(linear,left top,right top,from(#9f78ff),to(#32cafe));
+  // background-image: -webkit-linear-gradient(left,#9f78ff,#32cafe);
+  // background-image: -moz-linear-gradient(left,#9f78ff,#32cafe);
+  // background-image: -o-linear-gradient(left,#9f78ff,#32cafe);
+  // background-image: linear-gradient(to right,#9f78ff,#32cafe);
+  background-image: linear-gradient(to right, #33add7, #637dc9, #33add7);
+  background-repeat: repeat-x;
+}
+
+
+.bg-theme-gradient{
+  background-image: -webkit-gradient(linear,left top,right top,from(#314276),to(#32cafe));
+  background-image: -webkit-linear-gradient(left,#314276,#32cafe);
+  background-image: -moz-linear-gradient(left,#314276,#32cafe);
+  background-image: -o-linear-gradient(left,#314276,#32cafe);
+  background-image: linear-gradient(to right,#314276,#32cafe);
+  background-repeat: repeat-x;
+}
+
+.relative{
+  position: relative !important;
+}
+
+.bg-white{
+  background-color: #ffffff !important;
+}
+
+.bg-trans-white{
+  background-color: #ffffffbc !important;
+}
+
+.bg-none{
+  background: none !important;
+}
+
+.main-page-wrap{
+  min-height: 76vh;
+}
+
+.page-highlight-header{
+  position: sticky;
+  top:0;
+  padding:5px  10px;
+  z-index: 9;
+  color:  #fff;
+  background:$primary-color !important;
+  h3{
+    margin:0;
+    margin-top: 5px;
+    
+  }
+}
+
+.text-right{
+  text-align: right !important;
+}
