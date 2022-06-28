@@ -40,6 +40,16 @@ const routes: Routes = [
             (m) => m.CompanyManagementModule
           ),
       },
+
+      
+      {
+        path: 'lawfirm',
+        loadChildren: () =>
+          import('./main-modules/lawfirm-management/lawfirm-management.module').then(
+            (m) => m.LawfirmManagementModule
+          ),
+      },
+
      ],
   },
   {

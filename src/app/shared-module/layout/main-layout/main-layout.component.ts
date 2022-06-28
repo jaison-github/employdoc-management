@@ -31,7 +31,10 @@ export class MainLayoutComponent implements OnInit {
       "folder-1439",
       "skill-8805",
       "resume-9873",
-      "icon-dashboard"
+      "icon-dashboard",
+      "comp-icon-two",
+      "comp-icon-one",
+      "law-firm-icon"
     ];
   }
 

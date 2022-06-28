@@ -13,15 +13,26 @@
                         <span class="menu-title">Dashboard</span>
                     </ul>
                 </li>
-             
-                <li class="nav-item has-sub"  routerLink="/companyprofile">
+
+                <li class="nav-item has-sub">
                     <a>
-                        <mat-icon svgIcon="folder-1439" aria-hidden="false"></mat-icon>
+                        <mat-icon svgIcon="law-firm-icon" aria-hidden="false"></mat-icon>
                     </a>
+
                     <ul class="menu-content">
-                        <span class="menu-title">Company Settings</span>
+                        <span class="menu-title">Law Firm Management</span>
+                        <li>
+                            <a class="menu-item" routerLink="/lawfirm/cases">Cases</a>
+                        </li>
+                        <li>
+                            <a class="menu-item" routerLink="/lawfirm/clients" >Document Expiry</a>
+                        </li>
                     </ul>
+
+
+
                 </li>
+
                 <li class="nav-item has-sub" routerLink="/employeemanagement"  >
                     <a>
                         <mat-icon svgIcon="skill-8805" aria-hidden="false"></mat-icon>
@@ -49,6 +60,15 @@
 
                 </li>
 
+             
+                <li class="nav-item has-sub"  routerLink="/companyprofile">
+                    <a>
+                        <mat-icon svgIcon="comp-icon-one" aria-hidden="false"></mat-icon>
+                    </a>
+                    <ul class="menu-content">
+                        <span class="menu-title">Company Settings</span>
+                    </ul>
+                </li>
             </ul>
         </div>
     </div>
