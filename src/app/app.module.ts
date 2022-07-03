@@ -12,6 +12,8 @@ import { UserInfoStoreService } from '@shared/stores/master-data/user-data.state
 import { MatButtonModule } from '@angular/material/button';
 import { FileUploadStoreService } from '@shared/stores/master-data/file-upload.state';
 import { EmpStoreService } from './main-modules/employee-management/store/emp-management.state';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { CollapseModule } from 'ngx-bootstrap/collapse';
 
 @NgModule({
   declarations: [

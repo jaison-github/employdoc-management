@@ -1,1 +1,156 @@
-<p>case-form works!</p>
+<div id="caselist"
+    class="container-fluid container--xl container--xxl main-page-wrap bg-trans-white   my-3 mx-3   relative">
+    
+    <form  [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="row bg-theme-gradient page-highlight-header">
+        <div class="col-6">
+            <h3>Add Cases</h3>
+        </div>
+        <div class="col-6 row justify-content-end p-0">
+            <div class="col-md-2  d-flex justify-content-end p-0">
+                <button class="text-white" mat-raised-button color="accent">Save</button>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+    <div class="row p-4">
+        <div class="col-md-6">
+            <div>
+                <h3 class="half-underline">Case Details</h3>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <mat-form-field    class="cardtype" appearance="outline">
+                      <mat-label>Case Number</mat-label>
+                      <input formControlName="caseno" matInput placeholder="Placeholder">
+                    </mat-form-field>
+
+                    <mat-error *ngIf="errorHandling('caseno', 'required')">
+                      You must provide a<strong> Case Numbr </strong>
+                    </mat-error>
+                  </div>
+
+
+                  <div class="col-md-6">
+                    <mat-form-field    class="cardtype" appearance="outline">
+                      <mat-label>Case Type</mat-label>
+                      <input formControlName="casetype" matInput placeholder="Placeholder">
+                    </mat-form-field>
+
+                    <mat-error *ngIf="errorHandling('casetype', 'required')">
+                      You must provide a<strong> Case Type </strong>
+                    </mat-error>
+                  </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-6">
+            <mat-accordion>
+                <mat-expansion-panel [expanded]="true" class="mb-3 bg-none shadow-none">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <div>
+                                <h3 class="half-underline">Client Details</h3>
+                            </div>
+                        </mat-panel-title>
+                        <mat-panel-description class="justify-content-end"></mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <mat-form-field    class="cardtype" appearance="outline">
+                              <mat-label>Client Name</mat-label>
+                              <input formControlName="clientname" matInput placeholder="Placeholder">
+                            </mat-form-field>
+        
+                            <mat-error *ngIf="errorHandling('clientname', 'required')">
+                              You must provide a<strong> Client Name </strong>
+                            </mat-error>
+                          </div>
+        
+        
+                          <div class="col-md-6">
+                            <mat-form-field    class="cardtype" appearance="outline">
+                              <mat-label>Client Type</mat-label>
+                              <input formControlName="clienttype" matInput placeholder="Placeholder">
+                            </mat-form-field>
+        
+                            <mat-error *ngIf="errorHandling('clienttype', 'required')">
+                              You must provide a<strong> Client Type </strong>
+                            </mat-error>
+                          </div>
+
+                          <div class="col-md-6">
+                            <mat-form-field    class="cardtype" appearance="outline">
+                              <mat-label>Respondent Name</mat-label>
+                              <input formControlName="respondentname" matInput placeholder="Placeholder">
+                            </mat-form-field>
+        
+                            <mat-error *ngIf="errorHandling('respondentname', 'required')">
+                              You must provide a<strong> Respondent Name </strong>
+                            </mat-error>
+                          </div>
+
+                          <div class="col-md-6">
+                            <mat-form-field    class="cardtype" appearance="outline">
+                              <mat-label>Respondent Adovcate</mat-label>
+                              <input formControlName="respondentadv" matInput placeholder="Placeholder">
+                            </mat-form-field>
+        
+                            <mat-error *ngIf="errorHandling('respondentadv', 'required')">
+                              You must provide a<strong> Respondent Adovcate </strong>
+                            </mat-error>
+                          </div>
+                          
+        
+                    </div>
+
+                </mat-expansion-panel>
+                </mat-accordion>
+                <mat-accordion>
+                <mat-expansion-panel   [expanded]="true"   class="mb-3 bg-none shadow-none">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <div>
+                                <h3 class="half-underline">FIR Details</h3>
+                            </div>
+                        </mat-panel-title>
+                        <mat-panel-description class="justify-content-end"></mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <div class="row">
+
+                    </div>
+
+                </mat-expansion-panel>
+</mat-accordion>
+<mat-accordion>
+                <mat-expansion-panel  [expanded]="true" class="mb-3 bg-none shadow-none">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            <div>
+                                <h3 class="half-underline">Court Details</h3>
+                            </div>
+                        </mat-panel-title>
+                        <mat-panel-description class="justify-content-end"></mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <div class="row">
+
+                    </div>
+
+                </mat-expansion-panel>
+            </mat-accordion>
+
+        </div>
+
+    </div>
+
+
+</form>
+
+</div>

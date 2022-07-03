@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-case',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CaseComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: Router) { }
 
   ngOnInit(): void {
   }
+
+  goToDetails(empId) {
+    this.route.navigate(['/lawfirm/casesprofile', empId])
+  }
+
 
 }

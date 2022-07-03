@@ -24,6 +24,7 @@ import { BsModalService, ModalModule } from 'ngx-bootstrap/modal';
 import { FileuploadService } from './services/fileupload.service';
 import { FilePreviewComponent } from './components/file-uploader/file-preview/file-preview.component';
 import { HeaderAccountInfoComponent } from './layout/header-account-info/header-account-info.component';
+import { MatAccordion, MatExpansionModule } from '@angular/material/expansion';
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import { HeaderAccountInfoComponent } from './layout/header-account-info/header-
     MatNativeDateModule,
     MatMomentDateModule,
     FilePickerModule,
-    ModalModule
+    ModalModule,
+    MatExpansionModule,
   ],
   exports: [
     CommonModule,
@@ -69,7 +71,8 @@ import { HeaderAccountInfoComponent } from './layout/header-account-info/header-
     CustomDate,
     CustomDateTime,
     AddDocumentsComponent,
-    FilePreviewComponent
+    FilePreviewComponent,
+    MatExpansionModule,
    
   ],
   providers: [

@@ -7,26 +7,26 @@ import { ClientsComponent } from './components/clients/clients.component';
 
 const routes: Routes = [
   {
-    path:"", redirectTo:"cases", pathMatch: 'full' 
-   },
-   {
-   path:"cases",
-   component: CaseComponent
- },
- {
-  path:"casesprofile:/id",
-  component: CaseFormComponent
-},
- 
- {
-  path:"clients",
-  component: ClientsComponent
-},
- 
-{
-  path:"clientprofile/:id",
-  component: ClientFormComponent
-}, 
+    path: "", redirectTo: "cases", pathMatch: 'full'
+  },
+  {
+    path: "cases",
+    component: CaseComponent
+  },
+  {
+    path: "casesprofile/:id",
+    component: CaseFormComponent
+  },
+
+  {
+    path: "clients",
+    component: ClientsComponent
+  },
+
+  {
+    path: "clientprofile/:id",
+    component: ClientFormComponent
+  },
 
 ];
 
