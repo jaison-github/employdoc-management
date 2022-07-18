@@ -3,6 +3,30 @@
 
 html {
   body {
+    .mat-radio-group{
+    .mat-radio-button{
+  
+      label{
+        font-size: 0.85rem;
+      }
+    }
+  }
+
+
+  .mat-accordion{
+  .mat-expansion-panel{
+
+    background:#fff !important;///linear-gradient(to right, #33add7, #637dc9, #33add7);
+
+    .mat-expansion-panel-header-title{
+        color: $primary-color;
+        
+    }
+
+ }
+}
+
+
 
     .mat-form-field {
 
@@ -304,3 +328,5 @@ file-drop{
 
 
 }
+
+

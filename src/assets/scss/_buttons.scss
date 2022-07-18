@@ -7,6 +7,12 @@ html{
         .btn-primary{
             color:$secondary-color !important;          
         }
+
+        .btn{
+          overflow: hidden;
+          text-overflow: ellipsis;
+          
+        }
     }
 }
 

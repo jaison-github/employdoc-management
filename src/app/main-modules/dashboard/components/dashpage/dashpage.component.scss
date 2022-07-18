@@ -29,18 +29,19 @@
 }
 
 ::ng-deep{
+    html > body {
 .notificationList{
    .list-wra{
     margin-bottom: 10px;
    }
 
 
-    mat-expansion-panel{
+    .mat-expansion-panel{
 
-        background-image: linear-gradient(to right, #33add7, #bcc2d5, #33add7); ///linear-gradient(to right, #33add7, #637dc9, #33add7);
+        background-image: linear-gradient(to right, #33add7, #bcc2d5, #33add7) !important; ///linear-gradient(to right, #33add7, #637dc9, #33add7);
 
         .mat-expansion-panel-header-title{
-            color: #fff;
+            color: #fff !important;
             
         }
 
@@ -55,6 +56,7 @@
             }
         }
      }
+}
 }
 }
 

@@ -34,3 +34,20 @@
 //             }
 //         ]   
 // });
+
+
+
+export const CreateLawfirmSavePayload = () => ({   
+    newmode: true,
+    primarykey: 0,
+    headertable: 'EZTBL_EMPHD',
+    procname: 'sp_empaftersave',
+    headerdata:{},
+    detaildata: [
+        {
+          tablename: "EZTBL_EMPDET",
+          columnnames: "doctype,docnumber,issuedate,expirydate,dochand,attachrefno",
+          grddata:[]
+        }
+    ]   
+});
